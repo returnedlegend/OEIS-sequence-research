@@ -6738,3 +6738,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T22:03:33+00:00 | 20261115T192936-gpu-seed20261119 | progress | device=cuda, GPU pipeline | generated draws=184254527, GPU certified nonviolations=184254354, unique transferred candidates=146711, exact=146703, unknown=0, pending=8 | 19947.80 GPU screened draws/s | best exact gap=0.
 
 - 2026-11-15T22:03:33+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=184254527, GPU certified nonviolations=184254354, unique transferred candidates=146711, exact=146703, unknown=0, pending=8 | 19947.79 GPU screened draws/s | best exact gap=0.
+
+- 2026-11-15T22:03:39+00:00 | 20261115T192936-gpu-seed20261119 | runtime limit | device=cuda, GPU pipeline | generated draws=184254527, GPU certified nonviolations=184254354, unique transferred candidates=146711, exact=146703, unknown=0, pending=8 | 19934.23 GPU screened draws/s | best exact gap=0.
