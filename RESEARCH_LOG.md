@@ -1791,3 +1791,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T18:41:20+00:00 | 20261115T175120-seed20261116 | progress | device=cpu | generated=208817, unique screened=174155, exact=174057, unknown=0 | 58.05 unique graphs/s | best exact gap=0.
 
 - 2026-11-15T18:48:47+00:00 | 20261115T175120-seed20261116 | scheduled sync | device=cpu | generated=240037, unique screened=200063, exact=199962, unknown=0 | 58.04 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:51:20+00:00 | 20261115T175120-seed20261116 | runtime limit | device=cpu | generated=250090, unique screened=208445, exact=208343, unknown=1 | 57.90 unique graphs/s | best exact gap=0.
