@@ -25,8 +25,9 @@ triangle-free controls include the known Chvatal graph (n=12, Delta=4,
 omega=2, chi=4) and Mycielski(C5) (n=11, Delta=5, omega=2, chi=4).
 No novelty is claimed. Full records are in `runs/` and `RESEARCH_LOG.md`.
 
-Validation on the Windows NVIDIA host: **75 tests passed, none skipped**, including
-the CUDA mutation test and a cross-process search-lock regression.
+Validation on the Windows NVIDIA host: **110 tests passed, none skipped**, including
+CUDA mutation/coloring certificates, bounded parallel verification, preservation
+of unresolved candidates, background Git pushes, and the cross-process search lock.
 
 ## Environment
 
@@ -45,6 +46,45 @@ python scripts/install.py --device cuda
 python scripts/check_cuda.py
 python -m src.search --seconds 3600 --device cuda --seed 20261117 --max-vertices 50 --triangle-free --sync
 ```
+
+For the GPU pipeline (8,192 graphs per batch by default):
+
+```powershell
+python -m src.search --gpu-pipeline --triangle-free --device cuda --seconds 3600 --max-vertices 50 --seed 20261119 --verifier-workers 4 --audit-per-batch 8 --sync --stop-file .cache/gpu-search.stop
+```
+
+The stop-file path must be absent when starting. To request a clean checkpoint
+and shutdown from another PowerShell session, create it with
+`New-Item .cache/gpu-search.stop -ItemType File`. The file remains present after
+shutdown; use a fresh path for another run or remove the old request explicitly.
+
+This pipeline keeps populations on the GPU and performs degree-preserving
+triangle-free swaps plus four parallel DSATUR coloring trials. It independently
+checks the returned colorings against every edge on the GPU. If a proper
+coloring uses no more than `ceil((Delta + 3)/2)` colors, the graph cannot violate
+Reed's inequality: an edge gives a clique lower bound of 2. This proves
+nonviolation without claiming the exact chromatic number.
+
+Every graph whose coloring bound leaves a positive gap possible goes to exact
+verification. Up to eight other tight/near candidates per batch are sampled for
+exact checks and construction records. Four CPU processes perform these checks
+while GPU generation continues. Bounded queues apply backpressure rather than
+discarding possible violations. Unfinished candidates, including solver
+timeouts for possible violations, retain their adjacency in `pending.jsonl`.
+These pending records require later verification and are never counted as exact.
+
+GPU screened/certified counts are **generated instances, potentially repeated**.
+Only the transferred candidates are deduplicated across the run. A large GPU
+screening count therefore does not establish millions of distinct graphs or
+millions of exact chromatic-number calculations. The GPU mode runs persistent
+random walks within its seed degree sequences; it is not exhaustive.
+
+On the RTX 2070, an isolated 45-second experiment screened 4,898,816 GPU
+instances and completed 3,898 distinct exact verifications. The original loop
+completed 1,144 exact verifications in the same time budget. GPU utilization
+averaged 51% across the monitored process lifetime, peaking at 77%. These runs
+used different selection policies, and excluded Git network time. Records and
+commands are in `runs/gpu-pipeline-benchmark-20261115/`.
 
 Linux:
 
@@ -73,8 +113,11 @@ python src/independent_verify.py best_candidates/GRAPH_ID.json --time-limit 60
 ```
 
 The default runtime budget is one hour. Use `--seconds` to set a finite budget;
-Ctrl-C or SIGTERM stops after the current bounded solver call and writes a final
-checkpoint. Solver/model initialization and Git operations add some wall time.
+The portable `--stop-file` option requests a final checkpoint. Ctrl-C or SIGTERM
+can also request shutdown where the host delivers those signals to Python;
+Windows process termination is not a graceful signal. Solver/model initialization
+and Git operations add some wall time. The GPU pipeline preserves unfinished
+verification jobs and waits for its bounded worker processes to exit.
 Only one search per output directory is allowed. No service or GPU process is assumed to
 survive cloud environment shutdown. A new invocation starts a fresh reproducible
 search; previous logs and saved parameter representatives are retained.
@@ -84,6 +127,10 @@ after seeds, every 15 minutes or 50,000 uniquely screened labeled graphs, and at
 shutdown. Push failures are logged and retried after a clean-tree rebase; they do
 not kill the search. Failed rebases are aborted. Without `--sync`, results remain
 local. No force push is used. Progress is reported every 10 minutes by default.
+The GPU pipeline checkpoints every 50,000 generated instances or 15 minutes.
+Staging and committing happen between batch updates. Network pushes run in a
+single background thread and may combine multiple completed commits while a
+previous push is in flight; final shutdown waits for the latest checkpoint.
 
 ## Method and limits
 

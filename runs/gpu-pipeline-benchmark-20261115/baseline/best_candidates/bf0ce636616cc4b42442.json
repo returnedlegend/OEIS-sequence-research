@@ -1,0 +1,54 @@
+{
+  "graph_id": "bf0ce636616cc4b42442",
+  "source": "complete_2",
+  "run_id": "20261115T192114-seed20261118",
+  "adjacency": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "verification": {
+    "status": "exact",
+    "n": 2,
+    "edges": 1,
+    "max_degree": 1,
+    "omega": 2,
+    "chi": 2,
+    "reed_bound": 2,
+    "gap": 0,
+    "coloring": [
+      0,
+      1
+    ],
+    "clique": [
+      0,
+      1
+    ],
+    "elapsed_seconds": 0.0013173999905120581
+  },
+  "description": "Representative parameter tuple; no novelty claim.",
+  "independent_verification": {
+    "status": "exact",
+    "n": 2,
+    "edges": 1,
+    "max_degree": 1,
+    "omega": 2,
+    "chi": 2,
+    "reed_bound": 2,
+    "gap": 0,
+    "coloring": [
+      1,
+      0
+    ],
+    "clique": [
+      1,
+      0
+    ],
+    "elapsed_seconds": 3.339999238960445e-05
+  }
+}

@@ -62,8 +62,12 @@ class EventLog:
             self.stream = None
 
 
-def sync_git(message):
-    """Push completed tracked research artifacts; errors never terminate search."""
+def sync_git(message, prepare_only=False):
+    """Commit research artifacts and optionally push; errors do not end search.
+
+    prepare_only leaves network operations to the GPU controller's push worker.
+    Staging, commits and rebases always run on the calling controller thread.
+    """
     def git(*args):
         return subprocess.run(['git', *args], cwd=ROOT, text=True, capture_output=True, timeout=90)
     try:
@@ -85,6 +89,8 @@ def sync_git(message):
                 print('Git commit failed:', result.stderr, flush=True)
                 git('reset', '--', *paths)  # Only unstage what this call staged.
                 return False
+        if prepare_only:
+            return True
         result = git('push', 'origin', 'HEAD:main')
         if result.returncode:
             print('Git push failed:', result.stderr, flush=True)
@@ -105,6 +111,9 @@ def sync_git(message):
 
 
 def run(args):
+    if getattr(args, 'gpu_pipeline', False):
+        from .gpu_search import run as run_gpu_pipeline
+        return run_gpu_pipeline(args)
     import torch
     torch.set_num_threads(1)
     torch.manual_seed(args.seed)
@@ -119,6 +128,12 @@ def run(args):
     started = time.monotonic()
     deadline = started + args.seconds
     stop = False
+    stop_file = getattr(args, 'stop_file', None)
+    def stopping():
+        nonlocal stop
+        if stop_file and Path(stop_file).exists():
+            stop = True
+        return stop
     def request_stop(signum, frame):
         nonlocal stop
         stop = True
@@ -253,14 +268,14 @@ def run(args):
 
     try:
         for name, adjacency in seeds:
-            if stop or time.monotonic() >= deadline or violation:
+            if stopping() or time.monotonic() >= deadline or violation:
                 break
             evaluate(name, adjacency)
         checkpoint('seed evaluation', push=True)
-        while not stop and not violation and time.monotonic() < deadline:
+        while not stopping() and not violation and time.monotonic() < deadline:
             mutator = mutate_triangle_free_batch if triangle_mode else mutate_batch
             for adjacency in mutator(parents, args.batch_size, rng, device=device):
-                if stop or violation or time.monotonic() >= deadline:
+                if stopping() or violation or time.monotonic() >= deadline:
                     break
                 evaluate('triangle-free degree-preserving swaps' if triangle_mode else 'degree-preserving edge swaps', adjacency)
                 now = time.monotonic()
@@ -279,7 +294,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--seconds', type=float, default=3600, help='Finite wall-time search budget (default 1 hour).')
     parser.add_argument('--seed', type=int, default=20261115)
-    parser.add_argument('--batch-size', type=int, default=64)
+    parser.add_argument('--batch-size', type=int, default=None, help='Default 8192 for GPU pipeline, 64 otherwise.')
     parser.add_argument('--max-vertices', type=int, default=40)
     parser.add_argument('--solver-seconds', type=float, default=3)
     parser.add_argument('--progress-seconds', type=float, default=600)
@@ -287,7 +302,19 @@ def main():
     parser.add_argument('--output-dir', default=str(ROOT))
     parser.add_argument('--triangle-free', action='store_true', help='Reject swaps creating triangles; focus mutation on degree >= 3.')
     parser.add_argument('--sync', action='store_true', help='Commit/push checkpoints to origin main (explicit opt-in).')
+    parser.add_argument('--gpu-pipeline', action='store_true', help='Batched GPU coloring certificates with parallel exact verification.')
+    parser.add_argument('--verifier-workers', type=int, default=4)
+    parser.add_argument('--audit-per-batch', type=int, default=8, help='Exact-check this many certified tight/near candidates per batch; all potential violations are checked.')
+    parser.add_argument('--coloring-trials', type=int, default=4)
+    parser.add_argument('--swap-attempts', type=int, default=8)
+    parser.add_argument('--stop-file', help='Stop and checkpoint when this file exists (portable alternative to Ctrl-C).')
     args = parser.parse_args()
+    if args.batch_size is None:
+        args.batch_size = 8192 if args.gpu_pipeline else 64
+    if args.gpu_pipeline and not args.triangle_free:
+        parser.error('--gpu-pipeline requires --triangle-free.')
+    if args.verifier_workers < 1 or args.audit_per_batch < 0 or args.coloring_trials < 1 or args.swap_attempts < 1:
+        parser.error('verifier-workers, coloring-trials and swap-attempts must be positive; audit-per-batch must be nonnegative.')
     if any(not math.isfinite(value) or value <= 0 for value in
            (args.seconds, args.solver_seconds, args.progress_seconds)) or args.batch_size < 1 or args.max_vertices < 5:
         parser.error('Time budgets/batch size must be positive; max-vertices must be at least 5.')

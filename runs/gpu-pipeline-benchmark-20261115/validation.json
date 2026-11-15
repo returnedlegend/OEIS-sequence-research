@@ -1,0 +1,13 @@
+{
+  "tests_command": "python -m pytest -q -o cache_dir=.cache/final-cache --basetemp=.cache/final-tmp",
+  "tests_passed": 110,
+  "tests_skipped": 0,
+  "tests_seconds": 39.74,
+  "platform": "Windows",
+  "python": "3.13.17",
+  "torch": "2.14.1+cu126",
+  "gpu": "NVIDIA GeForce RTX 2070 with Max-Q Design",
+  "code_review": "Independent review of mutation invariants, conservative coloring certificates, exact positive confirmation, exception/deadline candidate preservation, and asynchronous network-only Git pushing found no remaining blockers.",
+  "records_verified": "For both benchmark runs, JSONL exact/unknown counts and pending records agree with summaries.",
+  "scope": "The comparison benchmark excludes Git sync. Background push behavior has unit coverage; live syncing is verified after deployment."
+}
