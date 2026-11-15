@@ -124,3 +124,35 @@ chromatic numbers have been established. No counterexample has been found.
   prior run artifacts are retained. No counterexample has been found.
 
 - 2026-11-15T18:45:26+00:00 | 20261115T184525-seed20261117 | seed evaluation | device=cuda | generated=63, unique screened=63, exact=53, unknown=0 | 72.93 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:46:25+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=2192, unique screened=1784, exact=1773, unknown=0 | 29.73 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:47:25+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=4520, unique screened=3748, exact=3735, unknown=0 | 31.23 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:48:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=6784, unique screened=5629, exact=5616, unknown=0 | 31.20 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:49:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=9067, unique screened=7520, exact=7506, unknown=0 | 31.27 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:50:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=11088, unique screened=9220, exact=9204, unknown=0 | 30.68 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:51:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=13104, unique screened=10911, exact=10893, unknown=0 | 30.27 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:52:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=15263, unique screened=12713, exact=12693, unknown=0 | 30.23 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:53:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=17342, unique screened=14451, exact=14430, unknown=0 | 30.07 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:54:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=19600, unique screened=16328, exact=16305, unknown=0 | 30.21 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:55:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=21952, unique screened=18282, exact=18258, unknown=0 | 30.44 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:56:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=23881, unique screened=19892, exact=19868, unknown=0 | 30.11 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:57:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=25812, unique screened=21510, exact=21485, unknown=0 | 29.85 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:58:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=27585, unique screened=23008, exact=22983, unknown=0 | 29.47 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:59:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=29372, unique screened=24505, exact=24480, unknown=0 | 29.15 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T19:00:26+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=31303, unique screened=26123, exact=26097, unknown=0 | 29.00 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T19:00:29+00:00 | 20261115T184525-seed20261117 | scheduled sync | device=cuda | generated=31419, unique screened=26215, exact=26189, unknown=0 | 29.01 unique graphs/s | best exact gap=0.
