@@ -1300,3 +1300,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T19:38:42+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=30965823, GPU certified nonviolations=30965742, unique transferred candidates=25026, exact=25018, unknown=0, pending=0 | 56724.79 GPU screened draws/s | best exact gap=0.
 
 - 2026-11-15T19:38:43+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=31023167, GPU certified nonviolations=31023086, unique transferred candidates=25082, exact=25070, unknown=0, pending=0 | 56748.01 GPU screened draws/s | best exact gap=0.
+
+- 2026-11-15T19:38:44+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=31080511, GPU certified nonviolations=31080430, unique transferred candidates=25122, exact=25113, unknown=0, pending=0 | 56748.04 GPU screened draws/s | best exact gap=0.
