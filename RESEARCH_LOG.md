@@ -912,3 +912,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T19:35:25+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=20070463, GPU certified nonviolations=20070386, unique transferred candidates=16210, exact=16202, unknown=0, pending=0 | 57565.27 GPU screened draws/s | best exact gap=0.
 
 - 2026-11-15T19:35:25+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=20127807, GPU certified nonviolations=20127730, unique transferred candidates=16253, exact=16246, unknown=0, pending=0 | 57596.84 GPU screened draws/s | best exact gap=0.
+
+- 2026-11-15T19:35:26+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=20185151, GPU certified nonviolations=20185074, unique transferred candidates=16309, exact=16297, unknown=0, pending=0 | 57641.52 GPU screened draws/s | best exact gap=0.
