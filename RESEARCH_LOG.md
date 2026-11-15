@@ -39,3 +39,26 @@ chromatic numbers have been established. No counterexample has been found.
   runs. Repeated pinned installation succeeded; pip check reports no conflicts.
   Saved reusable install_script and start_skill in the environment draft;
   publication remains a user action in environment settings.
+
+- 2026-11-15T17:44:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=28497, unique screened=26500, exact=25236, unknown=0 | 110.41 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:45:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=35369, unique screened=32852, exact=31309, unknown=0 | 109.50 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:46:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=42915, unique screened=39831, exact=37955, unknown=0 | 110.63 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:45:51Z | Triangle-free mutation experiment | Baseline swaps
+  often destroy the requested graph class. Added optional --triangle-free mode,
+  with exact common-neighbor rejection of each proposed added edge. This
+  preserves all vertex degrees and forbids new triangles; it does not guarantee
+  increased chromatic number. Every accepted research candidate still goes
+  through exact CP-SAT verification.
+- Fixed-seed benchmark, 256 children / 8 attempts: Chvatal retained triangle-free
+  children 10 -> 256 and unique labeled triangle-free children 8 -> 36;
+  Mycielski(C5) retained 18 -> 256 and unique children 11 -> 45.
+  Full measured outputs: runs/mutation-benchmark.json; reproduce with
+  `python scripts/benchmark_mutations.py`. These are mutation microbenchmarks,
+  not end-to-end search rates or evidence of better Reed gaps.
+- Validation after adding the focused mode: 73 passed, 1 skipped. The skip is
+  the CUDA hardware test. A 120-second focused pilot runs alongside the original
+  600-second baseline in a separate output directory, so timings are under
+  concurrent CPU load.

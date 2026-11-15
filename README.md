@@ -31,7 +31,7 @@ its driver from the official PyTorch wheel index. Check
 From this checkout:
 
 ```bash
-python -m src.search --seconds 3600 --device auto --seed 20261115 --sync
+python -m src.search --seconds 3600 --device auto --seed 20261115 --triangle-free --sync
 python -m src.verify best_candidates/GRAPH_ID.json --time-limit 60
 python src/independent_verify.py best_candidates/GRAPH_ID.json --time-limit 60
 ```
@@ -55,6 +55,9 @@ local. No force push is used. Progress is reported every 10 minutes by default.
   circulants, Andrasfai graphs, Mobius ladders, and complete/bipartite controls.
 - PyTorch batches degree-preserving double-edge swaps. These preserve maximum
   degree, but can change clique number, connectivity and chromatic number.
+  Optional `--triangle-free` rejects swaps introducing triangles and mutates
+  parents of degree >= 3 where available. It retains odd-cycle seed controls.
+  Default mode explores the broader structured seed mix.
 - A proper greedy coloring gives an upper bound `U` on chi; an explicit clique
   gives a lower bound `L` on omega. The screen
   `U - ceil((Delta + L + 1)/2)` is an **upper bound on the true gap**. Only

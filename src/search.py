@@ -15,6 +15,7 @@ import subprocess
 import time
 
 from .graphs import mutate_batch, screen_graph, seed_graphs
+from .constrained_graphs import is_triangle_free, mutate_triangle_free_batch
 from .verify import verify_graph
 from .independent_verify import verify_independently
 
@@ -134,7 +135,13 @@ def run(args):
             data = json.loads(path.read_text())['verification']
             signatures.add(tuple(data[k] for k in ('n', 'edges', 'max_degree', 'omega', 'chi')))
     seeds = list(seed_graphs(args.max_vertices))
+    triangle_mode = getattr(args, 'triangle_free', False)
+    if triangle_mode:
+        seeds = [(name, adj) for name, adj in seeds if is_triangle_free(adj)]
     parents = [adj for _, adj in seeds]
+    if triangle_mode:
+        # Keep cycles as correctness controls, but focus mutation on higher degree.
+        parents = [adj for adj in parents if max(map(sum, adj), default=0) >= 3] or parents
     base_parents = parents[:]
     last_report = last_sync = started
     last_sync_count = 0
@@ -197,7 +204,7 @@ def run(args):
         best_rank = ((best_gap, -best['omega'], best['chi'], best['n']) if best else None)
         if best_rank is None or rank > best_rank:
             best_gap, best = gap, {'graph_id': digest, 'source': name, **result}
-        if gap >= -1 and screen['clique_lower_bound'] <= 3:
+        if gap >= -1 and screen['clique_lower_bound'] <= 3 and (not triangle_mode or result['max_degree'] >= 3):
             # Retain all seed families and a moving pool of verified near candidates.
             parents.append(adjacency)
             parents = base_parents + parents[len(base_parents):][-128:]
@@ -245,10 +252,11 @@ def run(args):
             evaluate(name, adjacency)
         checkpoint('seed evaluation', push=True)
         while not stop and not violation and time.monotonic() < deadline:
-            for adjacency in mutate_batch(parents, args.batch_size, rng, device=device):
+            mutator = mutate_triangle_free_batch if triangle_mode else mutate_batch
+            for adjacency in mutator(parents, args.batch_size, rng, device=device):
                 if stop or violation or time.monotonic() >= deadline:
                     break
-                evaluate('degree-preserving edge swaps', adjacency)
+                evaluate('triangle-free degree-preserving swaps' if triangle_mode else 'degree-preserving edge swaps', adjacency)
                 now = time.monotonic()
                 if now-last_report >= args.progress_seconds:
                     checkpoint('progress')
@@ -271,6 +279,7 @@ def main():
     parser.add_argument('--progress-seconds', type=float, default=600)
     parser.add_argument('--device', choices=('auto', 'cpu', 'cuda'), default='auto')
     parser.add_argument('--output-dir', default=str(ROOT))
+    parser.add_argument('--triangle-free', action='store_true', help='Reject swaps creating triangles; focus mutation on degree >= 3.')
     parser.add_argument('--sync', action='store_true', help='Commit/push checkpoints to origin main (explicit opt-in).')
     args = parser.parse_args()
     if any(not math.isfinite(value) or value <= 0 for value in
