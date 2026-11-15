@@ -1,0 +1,4 @@
+networkx==3.7
+ortools==9.15.6755
+pytest==9.2.0
+# Install torch separately using the CPU or CUDA wheel index appropriate for the host.
