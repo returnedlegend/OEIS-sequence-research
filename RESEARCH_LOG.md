@@ -122,3 +122,5 @@ chromatic numbers have been established. No counterexample has been found.
   Evidence: runs/windows-cuda-setup-20261115/validation.json. Continue with a new
   one-hour triangle-free search, seed=20261117, n<=50, --device cuda --sync;
   prior run artifacts are retained. No counterexample has been found.
+
+- 2026-11-15T18:45:26+00:00 | 20261115T184525-seed20261117 | seed evaluation | device=cuda | generated=63, unique screened=63, exact=53, unknown=0 | 72.93 unique graphs/s | best exact gap=0.
