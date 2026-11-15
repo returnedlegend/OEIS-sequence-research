@@ -96,3 +96,7 @@ chromatic numbers have been established. No counterexample has been found.
   No persistent execution is assumed after this cloud machine stops.
 
 - 2026-11-15T17:51:20+00:00 | 20261115T175120-seed20261116 | seed evaluation | device=cpu | generated=63, unique screened=63, exact=53, unknown=0 | 127.67 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:01:20+00:00 | 20261115T175120-seed20261116 | progress | device=cpu | generated=43314, unique screened=36235, exact=36195, unknown=0 | 60.39 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:05:16+00:00 | 20261115T175120-seed20261116 | scheduled sync | device=cpu | generated=59800, unique screened=50063, exact=50014, unknown=0 | 59.89 unique graphs/s | best exact gap=0.
