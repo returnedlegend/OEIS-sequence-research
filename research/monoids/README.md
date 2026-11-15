@@ -5,16 +5,62 @@ multiplication, is (a) atomic and non-IDF, or (b) IDF and non-atomic.
 
 **Status: partial results only. No complete classification is claimed.**
 
-## A verified family for (b)
+## Stronger verified families for (b)
 
-Let t=a/b in lowest terms, with 2 <= a < every prime divisor of b, and assume
-b has at least two distinct prime factors. Then N_0[t] minus {0} is IDF and
-non-atomic. Every pair (t,r) with r in N_0[t], and its transpose, therefore
-belongs to (b). Examples: (2/15,0), (2/15,1), (2/15,4/225).
+Write t=a/b in lowest terms, a>=2, and b=product p^(e_p). Assume b has at
+least two distinct prime factors and a<p^(e_p) for every prime p dividing b.
+Then N_0[t] minus {0} is IDF and non-atomic. Thus every pair (t,r) with
+r in N_0[t], and its transpose, belongs to (b).
 
-See IDF_NONATOMIC_FAMILY.md for a self-contained proof. This is not a novelty
-claim: the supplied discussion refers to related progress-log families whose
-full statements were not included in the excerpts.
+If in addition a is a prime power, N_0[t,t^(-1)] minus {0} is IDF and
+non-atomic. The same applies to (t^i,t^(-j)) for positive coprime i,j.
+
+See [PRIME_POWER_DENOMINATOR_FAMILIES.md](PRIME_POWER_DENOMINATOR_FAMILIES.md)
+for self-contained proofs, including the nontrivial unit group in the
+reciprocal case. Examples include (5/144,0) and (4/225,225/4). An explicit
+element with no atom divisor in both N_0[5/144] and its reciprocal semiring is
+
+    243/128 = 1 + 4*(5/144) + 630*(5/144)^2.
+
+The reciprocal pair (5/144,144/5) is therefore another explicit example.
+See RECIPROCAL_ALGORITHM.md and reciprocal_factorizations.py for an exact
+finite atom-divisor and factorization algorithm in the reciprocal family.
+
+These hypotheses compare a to maximal prime-power factors, not just the
+individual primes. The older condition a<min{p:p|b}, proved in
+IDF_NONATOMIC_FAMILY.md, is a special case.
+
+For every fixed coprime a,b with a>1 and at least two primes dividing b,
+N_0[a/b^N] is therefore IDF and non-atomic for all sufficiently large N.
+
+No novelty claim is made: the user supplied detailed October–November
+progress posts, but live discussion access and the full attached drafts
+remain unavailable. Several of our reductions recover credited results.
+See [SOURCE_STATUS.md](SOURCE_STATUS.md).
+
+## A complete mixed family belonging to neither (a) nor (b)
+
+Let ell,p be distinct primes, q=ell^s/p^k<1, and r>1 whose reduced
+denominator is supported on {ell,p}. Then N_0[q,r] minus {0} is atomic and
+IDF, with finitely many divisor classes for each element. Depending on the
+relative sizes, it either has finitely many actual divisors, becomes a
+positive ring localization, or has a cyclic nontrivial unit group.
+
+See [MIXED_TWO_PRIME_FAMILY.md](MIXED_TWO_PRIME_FAMILY.md) for the complete
+proof and a broader sufficient criterion that permits composite numerators.
+
+## Independent checks of reported two-generator results
+
+- [PAIR_3_10_7_5.md](PAIR_3_10_7_5.md) recovers ppdppd's known result:
+  the only positive integers admitting atomic factorizations are powers
+  of 2. In particular the monoid is non-atomic. Its IDF status is not settled.
+- [PAIR_2_5_2_3.md](PAIR_2_5_2_3.md) recovers the reported non-atomicity,
+  using the explicit witness 125/81, and gives an exact formal-series atom
+  description. It reduces IDF to a variable-length binary-digit equation;
+  no solution of that remaining equation is claimed.
+
+These recoveries are not presented as new progress beyond the supplied
+October–November discussion. See SOURCE_STATUS.md for attribution.
 
 ## A broader one-generator reduction
 
@@ -91,12 +137,28 @@ sets are empty. Complete classification remains unproved in these notes.
   common numerator factor and at least two denominator primes, atomicity
   forces non-IDF. This covers genuine, nonredundant two-generator semirings.
 - STRONGER_CYCLIC_REDUCTIONS.md proves non-atomicity whenever a denominator
-  prime exceeds the numerator a. It also proves the unique-polynomial
+  maximal prime-power factor exceeds the numerator a. It also proves the unique-polynomial
   representation lemma and, for b>=2a, an exact formal description of atoms.
 - check_conductor.py validates the constructive conductor algorithm with exact
   rational arithmetic on 300 targets across five pairs. This finite check is
   not a proof of classification; the general theorem is proved in the notes.
 
+- LIMITS_OF_CONDUCTOR_ARGUMENTS.md constructs abstract atomic monoids with a
+  real conductor and atoms tending to 1. This rules out one proposed general
+  argument, but makes no assertion of additive closure or finite semiring
+  generation. It is not an example for part (a).
+
 No complete classification has been obtained. In particular, these arguments
 still do not decide atomicity or IDF for the cyclic case t=5/6. This is a
 limitation of the present work, not a claim about the current literature.
+
+## Exact implementation checks
+
+Run the reciprocal-family checks from the repository root:
+
+    python research/monoids/check_reciprocal.py
+
+These include explicit atomless elements, a nonunit rational with norm1,
+known polynomial factors, 240 polynomial membership reconstructions, 1,200
+Laurent associates, and exact reconstruction of returned factorizations.
+The full correctness and termination argument is in RECIPROCAL_ALGORITHM.md.

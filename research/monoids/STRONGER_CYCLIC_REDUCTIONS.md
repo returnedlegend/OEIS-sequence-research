@@ -45,7 +45,51 @@ a>max(P).
 
 Equality is impossible because gcd(a,b)=1. This proves non-atomicity for
 4/15, 3/10, and10/33, among many other parameters. It does NOT establish IDF
-for these additional examples. The proved IDF family still requires a<min(P).
+for these additional examples. A stronger proved IDF family now appears in PRIME_POWER_DENOMINATOR_FAMILIES.md:
+it requires a<p^(v_p(b)) for every p in P.
+
+## 2A. A stronger necessary condition using maximal prime powers
+
+In fact S is non-atomic whenever p^(v_p(b))>a for at least one p in P.
+Consequently atomicity requires
+
+    a > max{p^(v_p(b)): p in P}.
+
+Proof: write e=v_p(b). The presence of another denominator prime gives
+b>=2*p^e>2a, so the coefficient-carry argument above applies. Every atom has
+coefficients below a. If such an atom is nonconstant, with degree n>=1,
+its numerator N over b^n satisfies
+
+    v_p(N)=v_p(c_n)<e,
+    v_p(N/b^n)<0,
+
+because all terms except the leading term are divisible by p^e and
+0<c_n<a<p^e.
+
+Choose another prime s in P. For each k the ratios
+p^(phi(a^k)*m)/s^(phi(a^k)*n), with positive integers m,n, are dense in the
+positive reals. This is the usual irrational-rotation density argument;
+approximating log(target) by m*log(p)-n*log(s) can use arbitrarily large
+positive m,n. We may therefore select h_k in
+
+    (1+C*t^k, 1+(C+1)*t^k)
+
+with v_p(h_k)>0 and h_k-1 in a^k R. The conductor gives h_k in S exactly as
+in README.md. For large k, 1<h_k<2.
+
+Suppose such an h_k factors into atoms. All factors are P-smooth and hence
+strictly greater than 1. Each must also be below 2, so no factor can be a
+constant integer. Every factor thus has negative p-adic valuation by the
+preceding calculation. Their product cannot have v_p(h_k)>0. This proves
+non-atomicity.
+
+For example this settles non-atomicity of N_0[7/18] minus {0}, since 9>7,
+even though neither denominator prime exceeds 7. It does not by itself
+settle IDF for that example. The older necessary condition a>max(P) is not sufficient:
+5/72 has 5>max{2,3} but is IDF and non-atomic by the stronger family; the
+new maximal-prime-power condition excludes it because 5<8,9. No sufficient
+criterion for atomicity in the remaining multi-prime cyclic regime is
+claimed.
 
 ## 3. Unique polynomial representations and an exact atom criterion
 
