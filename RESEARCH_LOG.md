@@ -26,3 +26,16 @@ chromatic numbers have been established. No counterexample has been found.
   exact known families, timeouts and tensor swap invariants. CUDA untested.
 
 - 2026-11-15T17:40:11+00:00 | 20261115T174010-seed20261115 | seed evaluation | device=cpu | generated=83, unique screened=83, exact=73, unknown=0 | 148.38 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:41:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=6553, unique screened=6134, exact=5860, unknown=0 | 102.23 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:42:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=13797, unique screened=12867, exact=12272, unknown=0 | 107.22 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:43:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=21106, unique screened=19670, exact=18754, unknown=0 | 109.27 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:43:04Z | Reliability update | 64 tests passed. Added independent
+  verifier and controller regressions; isolated output-directory locks; finite
+  budget validation; safe commit-failure unstaging; rotated event logs for future
+  runs. Repeated pinned installation succeeded; pip check reports no conflicts.
+  Saved reusable install_script and start_skill in the environment draft;
+  publication remains a user action in environment settings.

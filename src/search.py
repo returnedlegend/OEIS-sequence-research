@@ -36,6 +36,30 @@ def write_json(path, data):
     temp.replace(path)
 
 
+class EventLog:
+    """Rotate verification records so long runs stay below GitHub blob limits."""
+    def __init__(self, directory, max_records=10_000):
+        self.directory = directory
+        self.max_records = max_records
+        self.records = 0
+        self.part = 0
+        self.stream = None
+
+    def write(self, line):
+        if self.stream is None or self.records >= self.max_records:
+            self.close()
+            self.part += 1
+            self.records = 0
+            self.stream = (self.directory / f'events-{self.part:05d}.jsonl').open('x', buffering=1)
+        self.stream.write(line)
+        self.records += 1
+
+    def close(self):
+        if self.stream is not None:
+            self.stream.close()
+            self.stream = None
+
+
 def sync_git(message):
     """Push completed tracked research artifacts; errors never terminate search."""
     def git(*args):
@@ -115,7 +139,7 @@ def run(args):
     last_report = last_sync = started
     last_sync_count = 0
     violation = False
-    event_file = (run_dir / 'events.jsonl').open('a', buffering=1)
+    event_file = EventLog(run_dir)
     config = vars(args) | {'device_used': device, 'torch_version': torch.__version__,
                            'cuda_available': torch.cuda.is_available(), 'started_utc': utc(),
                            'seed_count': len(seeds), 'git_head': subprocess.check_output(
@@ -254,11 +278,13 @@ def main():
         parser.error('Time budgets/batch size must be positive; max-vertices must be at least 5.')
     if args.sync and Path(args.output_dir).resolve() != ROOT:
         parser.error('--sync requires repository-root output-dir.')
-    with (ROOT / '.search.lock').open('w') as lock:
+    output_root = Path(args.output_dir).resolve()
+    output_root.mkdir(parents=True, exist_ok=True)
+    with (output_root / '.search.lock').open('w') as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
-            parser.error('Another search is already running in this checkout.')
+            parser.error('Another search is already running in this output directory.')
         return run(args)
 
 

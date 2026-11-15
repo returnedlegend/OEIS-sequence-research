@@ -39,7 +39,7 @@ python src/independent_verify.py best_candidates/GRAPH_ID.json --time-limit 60
 The default runtime budget is one hour. Use `--seconds` to set a finite budget;
 Ctrl-C or SIGTERM stops after the current bounded solver call and writes a final
 checkpoint. Solver/model initialization and Git operations add some wall time.
-Only one search per checkout is allowed. No service or GPU process is assumed to
+Only one search per output directory is allowed. No service or GPU process is assumed to
 survive cloud environment shutdown. A new invocation starts a fresh reproducible
 search; previous logs and saved parameter representatives are retained.
 
@@ -78,7 +78,8 @@ local. No force push is used. Progress is reported every 10 minutes by default.
 - `best_candidates/`: exact gap-zero representatives, one per
   `(n, edges, Delta, omega, chi)` tuple across runs. No graph novelty is implied.
 - `near_misses/`: representatives with exact gap -1.
-- `runs/`: configuration, per-verification JSONL records, and summary statistics.
+- `runs/`: configuration, per-verification JSONL records (rotated every 10,000
+  records in new runs), and summary statistics.
   Deduplication is by labeled adjacency matrix, not graph isomorphism. Generated,
   screened, exact, skipped, duplicate and unknown counts are separate.
 - `RESEARCH_LOG.md`: append-only UTC experiment checkpoints.
