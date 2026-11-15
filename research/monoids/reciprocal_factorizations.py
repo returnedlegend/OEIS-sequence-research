@@ -189,21 +189,23 @@ class ReciprocalFamily:
         norms = [self.norm(alpha) for alpha in atoms]
         answers = []
 
-        def visit(index, remainder, remaining_norm, exponents):
+        pending = [(0, x, self.norm(x), [])]
+        while pending:
+            index, remainder, remaining_norm, exponents = pending.pop()
             if index == len(atoms):
                 exponent = self.unit_exponent(remainder)
                 if exponent is not None:
                     answers.append({"unit_power": exponent, "atom_exponents": exponents})
-                return
+                continue
             power, norm_power, multiplicity = Fraction(1), Fraction(1), 0
+            children = []
             while norm_power <= remaining_norm:
-                visit(index + 1, remainder / power, remaining_norm / norm_power,
-                      exponents + [multiplicity])
+                children.append((index + 1, remainder / power, remaining_norm / norm_power,
+                                 exponents + [multiplicity]))
                 power *= atoms[index]
                 norm_power *= norms[index]
                 multiplicity += 1
-
-        visit(0, x, self.norm(x), [])
+            pending.extend(reversed(children))
         return {"a": self.a, "b": self.b, "x": str(x),
                 "normalized_atom_divisors": [str(alpha) for alpha in atoms],
                 "candidate_bound": candidate_bound, "factorizations": answers}
