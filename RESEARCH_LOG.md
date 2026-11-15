@@ -62,3 +62,7 @@ chromatic numbers have been established. No counterexample has been found.
   the CUDA hardware test. A 120-second focused pilot runs alongside the original
   600-second baseline in a separate output directory, so timings are under
   concurrent CPU load.
+
+- 2026-11-15T17:47:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=50324, unique screened=46676, exact=44475, unknown=0 | 111.12 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:47:41+00:00 | 20261115T174010-seed20261115 | scheduled sync | device=cpu | generated=54026, unique screened=50083, exact=47731, unknown=0 | 111.14 unique graphs/s | best exact gap=0.
