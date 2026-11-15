@@ -1980,3 +1980,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T19:44:31+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=50176063, GPU certified nonviolations=50175971, unique transferred candidates=40498, exact=40490, unknown=0, pending=0 | 56034.98 GPU screened draws/s | best exact gap=0.
 
 - 2026-11-15T19:44:32+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=50233407, GPU certified nonviolations=50233315, unique transferred candidates=40544, exact=40536, unknown=0, pending=0 | 56054.29 GPU screened draws/s | best exact gap=0.
+
+- 2026-11-15T19:44:33+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=50290751, GPU certified nonviolations=50290659, unique transferred candidates=40600, exact=40585, unknown=0, pending=0 | 56060.05 GPU screened draws/s | best exact gap=0.
