@@ -1,0 +1,17 @@
+{
+  "seconds": 600.0,
+  "seed": 20261115,
+  "batch_size": 64,
+  "max_vertices": 40,
+  "solver_seconds": 3,
+  "progress_seconds": 60.0,
+  "device": "cpu",
+  "output_dir": "/workspace/OEIS-sequence-research",
+  "sync": true,
+  "device_used": "cpu",
+  "torch_version": "2.15.0+cpu",
+  "cuda_available": false,
+  "started_utc": "2026-11-15T17:40:10+00:00",
+  "seed_count": 83,
+  "git_head": "42def951cdc78eef58d3847705fec0dc55f5d075"
+}

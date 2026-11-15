@@ -24,3 +24,5 @@ chromatic numbers have been established. No counterexample has been found.
   Smoke artifacts are in /tmp/oeis-smoke; the summary is retained here.
 - Initial validation: 33 tests passed, including brute-force reference checks,
   exact known families, timeouts and tensor swap invariants. CUDA untested.
+
+- 2026-11-15T17:40:11+00:00 | 20261115T174010-seed20261115 | seed evaluation | device=cpu | generated=83, unique screened=83, exact=73, unknown=0 | 148.38 unique graphs/s | best exact gap=0.
