@@ -1,0 +1,17 @@
+{
+  "seconds": 15.0,
+  "seed": 20261115,
+  "batch_size": 64,
+  "max_vertices": 24,
+  "solver_seconds": 3,
+  "progress_seconds": 5.0,
+  "device": "cpu",
+  "output_dir": "/tmp/oeis-smoke",
+  "sync": false,
+  "device_used": "cpu",
+  "torch_version": "2.15.0+cpu",
+  "cuda_available": false,
+  "started_utc": "2026-11-15T17:38:58+00:00",
+  "seed_count": 61,
+  "git_head": "28405247535df88247f38562a054bbaaa7a50eca"
+}

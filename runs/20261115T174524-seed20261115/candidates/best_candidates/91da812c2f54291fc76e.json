@@ -1,0 +1,159 @@
+{
+  "graph_id": "91da812c2f54291fc76e",
+  "source": "odd_cycle_9",
+  "run_id": "20261115T174524-seed20261115",
+  "adjacency": [
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
+  ],
+  "verification": {
+    "status": "exact",
+    "n": 9,
+    "edges": 9,
+    "max_degree": 2,
+    "omega": 2,
+    "chi": 3,
+    "reed_bound": 3,
+    "gap": 0,
+    "coloring": [
+      0,
+      2,
+      0,
+      1,
+      2,
+      1,
+      2,
+      0,
+      1
+    ],
+    "clique": [
+      0,
+      8
+    ],
+    "elapsed_seconds": 0.004131112999971265
+  },
+  "description": "Representative parameter tuple; no novelty claim.",
+  "independent_verification": {
+    "status": "exact",
+    "n": 9,
+    "edges": 9,
+    "max_degree": 2,
+    "omega": 2,
+    "chi": 3,
+    "reed_bound": 3,
+    "gap": 0,
+    "coloring": [
+      2,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "clique": [
+      8,
+      7
+    ],
+    "elapsed_seconds": 7.701499998802319e-05
+  }
+}

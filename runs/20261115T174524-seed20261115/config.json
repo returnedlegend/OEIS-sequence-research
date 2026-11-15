@@ -1,0 +1,18 @@
+{
+  "seconds": 120.0,
+  "seed": 20261115,
+  "batch_size": 64,
+  "max_vertices": 40,
+  "solver_seconds": 3,
+  "progress_seconds": 30.0,
+  "device": "cpu",
+  "output_dir": "/workspace/oeis-focused-pilot",
+  "triangle_free": true,
+  "sync": false,
+  "device_used": "cpu",
+  "torch_version": "2.15.0+cpu",
+  "cuda_available": false,
+  "started_utc": "2026-11-15T17:45:24+00:00",
+  "seed_count": 61,
+  "git_head": "8049ec3a5ed7a8ac6f597d926ab7238c735a27e4"
+}

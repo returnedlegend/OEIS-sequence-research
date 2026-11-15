@@ -66,3 +66,21 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T17:47:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=50324, unique screened=46676, exact=44475, unknown=0 | 111.12 unique graphs/s | best exact gap=0.
 
 - 2026-11-15T17:47:41+00:00 | 20261115T174010-seed20261115 | scheduled sync | device=cpu | generated=54026, unique screened=50083, exact=47731, unknown=0 | 111.14 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:48:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=57204, unique screened=53016, exact=50541, unknown=0 | 110.44 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:47:24Z | Focused pilot complete | 120 seconds, n<=40,
+  seed=20261115, CPU triangle-free swaps. 8,778 generated; 7,473 distinct labeled
+  graphs screened; 7,451 exact; 1 unknown at deadline; 62.27 screened graphs/s.
+  Best gap 0, no counterexample. All 50 saved parameter representatives agreed
+  independently. Full pilot logs and candidates are archived under
+  runs/20261115T174524-seed20261115/; implementation corresponds to fc6b183.
+  Initial smoke artifacts are also retained under their timestamped run folder.
+- 2026-11-15T17:47:41Z | Automatic threshold sync succeeded at 50,083 uniquely
+  screened baseline graphs (50,000 since the seed checkpoint); 47,731 exact,
+  best gap 0. Future runs record source SHA-256 hashes as well as the Git HEAD
+  so local code changes are visible in provenance.
+
+- 2026-11-15T17:49:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=64812, unique screened=60036, exact=57245, unknown=0 | 111.16 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:50:10+00:00 | 20261115T174010-seed20261115 | runtime limit | device=cpu | generated=72454, unique screened=67086, exact=63938, unknown=1 | 111.81 unique graphs/s | best exact gap=0.

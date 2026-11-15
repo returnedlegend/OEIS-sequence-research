@@ -1,0 +1,52 @@
+{
+  "run_id": "20261115T174524-seed20261115",
+  "timestamp_utc": "2026-11-15T17:47:24+00:00",
+  "reason": "runtime limit",
+  "device": "cpu",
+  "elapsed_seconds": 120.00043296700005,
+  "generated": 8778,
+  "unique_screened": 7473,
+  "duplicates": 1305,
+  "screened_out": 21,
+  "exact_calls": 7452,
+  "exact": 7451,
+  "unknown": 1,
+  "saved_tight": 27,
+  "saved_near": 23,
+  "independent_agreements": 50,
+  "independent_unknown": 0,
+  "unique_graphs_per_second": 62.274775308977965,
+  "best_gap": 0,
+  "best": {
+    "graph_id": "2f1e5ebfbd90c4a8c34e",
+    "source": "chvatal",
+    "status": "exact",
+    "n": 12,
+    "edges": 24,
+    "max_degree": 4,
+    "omega": 2,
+    "chi": 4,
+    "reed_bound": 4,
+    "gap": 0,
+    "coloring": [
+      0,
+      2,
+      1,
+      0,
+      1,
+      0,
+      3,
+      3,
+      0,
+      3,
+      1,
+      1
+    ],
+    "clique": [
+      5,
+      11
+    ],
+    "elapsed_seconds": 0.006335010999919177
+  },
+  "counterexample_verified": false
+}

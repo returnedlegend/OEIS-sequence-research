@@ -149,7 +149,12 @@ def run(args):
     event_file = EventLog(run_dir)
     config = vars(args) | {'device_used': device, 'torch_version': torch.__version__,
                            'cuda_available': torch.cuda.is_available(), 'started_utc': utc(),
-                           'seed_count': len(seeds), 'git_head': subprocess.check_output(
+                           'seed_count': len(seeds),
+                           'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+                                             for path in sorted((ROOT / 'src').glob('*.py'))},
+                           'git_dirty_at_start': bool(subprocess.check_output(
+                               ['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip()),
+                           'git_head': subprocess.check_output(
                                ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()}
     write_json(run_dir / 'config.json', config)
 
