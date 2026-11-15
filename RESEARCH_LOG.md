@@ -110,3 +110,15 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T18:31:20+00:00 | 20261115T175120-seed20261116 | progress | device=cpu | generated=168484, unique screened=140652, exact=140569, unknown=0 | 58.60 unique graphs/s | best exact gap=0.
 
 - 2026-11-15T18:34:04+00:00 | 20261115T175120-seed20261116 | scheduled sync | device=cpu | generated=179828, unique screened=150063, exact=149973, unknown=0 | 58.52 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T18:44:03Z | Local Windows CUDA setup verified | Python 3.13.17
+  in .venv; locked dependencies; PyTorch 2.14.1+cu126 with CUDA 12.6 on NVIDIA
+  GeForce RTX 2070 with Max-Q Design (8 GB, sm_75; driver 610.91). A real 32x32
+  float32 CUDA matrix product agrees with the CPU reference (checksum
+  8575959040). The portable installer completed end to end: pip check clean,
+  75 tests passed, none skipped, including CUDA triangle-free swaps. Replaced
+  Linux-only fcntl locking with filelock and added cross-process CLI exclusion
+  and release coverage. Test deadlines no longer depend on Git startup speed.
+  Evidence: runs/windows-cuda-setup-20261115/validation.json. Continue with a new
+  one-hour triangle-free search, seed=20261117, n<=50, --device cuda --sync;
+  prior run artifacts are retained. No counterexample has been found.

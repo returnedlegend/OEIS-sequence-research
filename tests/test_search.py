@@ -24,9 +24,12 @@ EXACT_CYCLE = dict(status="exact", n=5, edges=5, max_degree=2, omega=2,
 def harness(tmp_path, monkeypatch):
     saved = {sig: signal.getsignal(sig) for sig in (signal.SIGINT, signal.SIGTERM)}
     monkeypatch.setattr(search, "seed_graphs", lambda maximum: [("cycle5", CYCLE5)])
+    # Exercise deadlines without depending on Git/Windows process startup speed.
+    clock = [0.0]
+    monkeypatch.setattr(search, "time", SimpleNamespace(monotonic=lambda: clock[0]))
 
     def no_more_mutations(*args, **kwargs):
-        time.sleep(0.04)
+        clock[0] += 0.04
         return []
 
     monkeypatch.setattr(search, "mutate_batch", no_more_mutations)
@@ -122,7 +125,7 @@ def test_exact_result_at_runtime_deadline_still_checkpoints(harness, monkeypatch
     args, output = harness
 
     def complete_after_deadline(*a, **k):
-        time.sleep(0.04)
+        monkeypatch.setattr(search.time, "monotonic", lambda: 0.04)
         return EXACT_CYCLE.copy()
 
     monkeypatch.setattr(search, "verify_graph", complete_after_deadline)
@@ -218,7 +221,7 @@ def test_real_cpu_cli_run_writes_verified_checkpoint(tmp_path):
         subprocess.run(command, cwd=project, check=True, capture_output=True, timeout=10)
     output = tmp_path / "output"
     completed = subprocess.run(
-        [sys.executable, "-m", "src.search", "--device", "cpu", "--seconds", "0.3",
+        [sys.executable, "-m", "src.search", "--device", "cpu", "--seconds", "2",
          "--max-vertices", "5", "--batch-size", "4", "--output-dir", str(output)],
         cwd=project, text=True, capture_output=True, timeout=30,
     )
@@ -244,3 +247,31 @@ def test_cli_rejects_nonfinite_budgets(tmp_path, option, value):
     )
     assert completed.returncode == 2, completed.stderr
     assert not (tmp_path / "runs").exists()
+
+
+def test_cli_excludes_concurrent_search_and_releases_lock(tmp_path):
+    ready = tmp_path / "holder-ready"
+    holder = subprocess.Popen(
+        [sys.executable, "-c",
+         "from filelock import FileLock; from pathlib import Path; import sys; "
+         "lock = FileLock(sys.argv[1]); lock.acquire(timeout=0); "
+         "Path(sys.argv[2]).write_text('locked'); sys.stdin.readline(); lock.release()",
+         str(tmp_path / ".search.lock"), str(ready)],
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+    )
+    command = [sys.executable, "-m", "src.search", "--device", "cpu", "--seconds", "2",
+               "--max-vertices", "5", "--batch-size", "4", "--output-dir", str(tmp_path)]
+    try:
+        deadline = time.monotonic() + 15
+        while not ready.exists() and holder.poll() is None and time.monotonic() < deadline:
+            time.sleep(0.01)
+        assert ready.exists(), "lock holder did not become ready within 15 seconds"
+        rejected = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=30)
+        assert rejected.returncode == 2, rejected.stderr
+        assert "Another search is already running" in rejected.stderr
+        assert not (tmp_path / "runs").exists()
+    finally:
+        holder.communicate(input="\n", timeout=10)
+    accepted = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=30)
+    assert accepted.returncode == 0, accepted.stderr
+    assert read_summary(tmp_path)["exact"] >= 1

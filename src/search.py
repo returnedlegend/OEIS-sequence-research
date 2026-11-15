@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
-import fcntl
 import hashlib
 import json
 import math
@@ -13,6 +12,8 @@ import shutil
 import signal
 import subprocess
 import time
+
+from filelock import FileLock, Timeout
 
 from .graphs import mutate_batch, screen_graph, seed_graphs
 from .constrained_graphs import is_triangle_free, mutate_triangle_free_batch
@@ -294,12 +295,15 @@ def main():
         parser.error('--sync requires repository-root output-dir.')
     output_root = Path(args.output_dir).resolve()
     output_root.mkdir(parents=True, exist_ok=True)
-    with (output_root / '.search.lock').open('w') as lock:
-        try:
-            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        except BlockingIOError:
-            parser.error('Another search is already running in this output directory.')
+    lock = FileLock(output_root / '.search.lock')
+    try:
+        lock.acquire(timeout=0)
+    except Timeout:
+        parser.error('Another search is already running in this output directory.')
+    try:
         return run(args)
+    finally:
+        lock.release()
 
 
 if __name__ == '__main__':
