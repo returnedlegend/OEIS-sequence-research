@@ -275,3 +275,30 @@ def test_cli_excludes_concurrent_search_and_releases_lock(tmp_path):
     accepted = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=30)
     assert accepted.returncode == 0, accepted.stderr
     assert read_summary(tmp_path)["exact"] >= 1
+
+
+@pytest.mark.parametrize('options, message', [
+    (['--gpu-pipeline'], '--gpu-pipeline requires --triangle-free'),
+    (['--gpu-pipeline', '--triangle-free', '--verifier-workers', '0'], 'verifier-workers'),
+    (['--gpu-pipeline', '--triangle-free', '--audit-per-batch', '-1'], 'audit-per-batch'),
+    (['--gpu-pipeline', '--triangle-free', '--coloring-trials', '0'], 'coloring-trials'),
+])
+def test_gpu_pipeline_cli_rejects_invalid_options(tmp_path, options, message):
+    completed = subprocess.run(
+        [sys.executable, '-m', 'src.search', '--output-dir', str(tmp_path), *options],
+        cwd=ROOT, text=True, capture_output=True, timeout=15,
+    )
+    assert completed.returncode == 2
+    assert message in completed.stderr
+    assert 'unrecognized arguments' not in completed.stderr
+    assert not (tmp_path / 'runs').exists()
+
+
+def test_existing_stop_file_creates_final_checkpoint_without_search(harness):
+    args, output = harness
+    args.stop_file = str(output / 'requested.stop')
+    Path(args.stop_file).touch()
+    assert search.run(args) == 0
+    summary = read_summary(output)
+    assert summary['reason'] == 'stopped'
+    assert summary['generated'] == 0

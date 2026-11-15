@@ -1,0 +1,27 @@
+{
+  "baseline": {
+    "summary": "baseline\\runs\\20261115T192114-seed20261118\\summary.json",
+    "elapsed_seconds": 45.321294299996225,
+    "generated_instances": 1407,
+    "distinct_transferred_candidates": 1155,
+    "exact": 1144,
+    "unknown": 0,
+    "pending": 0,
+    "best_gap": 0
+  },
+  "gpu": {
+    "summary": "gpu\\runs\\20261115T192317-gpu-seed20261118\\summary.json",
+    "elapsed_seconds": 45.36606010000105,
+    "generated_instances": 4898879,
+    "distinct_transferred_candidates": 3912,
+    "exact": 3898,
+    "unknown": 0,
+    "pending": 14,
+    "best_gap": 0,
+    "gpu_screened_instances_per_second": 107984.16237163797,
+    "gpu_utilization_mean_percent": 51.23809523809524,
+    "gpu_utilization_max_percent": 77.0
+  },
+  "exact_throughput_ratio": 3.4039803988699076,
+  "caveat": "Same 45-second budget, seed and maximum order; different selection policies. GPU counts include duplicate instances. Exact counts are deduplicated within each run. Git sync was disabled for the benchmark. CUDA setup/model initialization precedes or contributes to startup. Actual live sync overhead must be measured separately."
+}

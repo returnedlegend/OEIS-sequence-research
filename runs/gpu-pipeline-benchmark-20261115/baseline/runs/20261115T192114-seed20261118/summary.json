@@ -1,0 +1,52 @@
+{
+  "run_id": "20261115T192114-seed20261118",
+  "timestamp_utc": "2026-11-15T19:22:00+00:00",
+  "reason": "runtime limit",
+  "device": "cuda",
+  "elapsed_seconds": 45.321294299996225,
+  "generated": 1407,
+  "unique_screened": 1155,
+  "duplicates": 252,
+  "screened_out": 11,
+  "exact_calls": 1144,
+  "exact": 1144,
+  "unknown": 0,
+  "saved_tight": 27,
+  "saved_near": 22,
+  "independent_agreements": 49,
+  "independent_unknown": 0,
+  "unique_graphs_per_second": 25.48470907195817,
+  "best_gap": 0,
+  "best": {
+    "graph_id": "2f1e5ebfbd90c4a8c34e",
+    "source": "chvatal",
+    "status": "exact",
+    "n": 12,
+    "edges": 24,
+    "max_degree": 4,
+    "omega": 2,
+    "chi": 4,
+    "reed_bound": 4,
+    "gap": 0,
+    "coloring": [
+      0,
+      2,
+      1,
+      0,
+      1,
+      0,
+      3,
+      3,
+      0,
+      3,
+      1,
+      1
+    ],
+    "clique": [
+      5,
+      11
+    ],
+    "elapsed_seconds": 0.01476849999744445
+  },
+  "counterexample_verified": false
+}
