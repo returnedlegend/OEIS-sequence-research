@@ -23,12 +23,17 @@ def main():
     assert family.unit_exponent(Q(2, 15)) is None
     assert not in_reciprocal(Q(2, 15), 4, 225)
     assert family.factorizations(Q(9, 5))["normalized_atom_divisors"] == []
+    family = ReciprocalFamily(6, 175)
+    assert family.factorizations(Q(49, 25))["normalized_atom_divisors"] == []
+    six = family.factorizations(6)
+    assert six["normalized_atom_divisors"] == ["2", "3", "5"]
+    assert six["factorizations"] == [{"unit_power": 0, "atom_exponents": [1, 1, 0]}]
     assert formal_atom((1, 1))
     assert not formal_atom((1, 2, 1))
     assert not formal_atom((1, 1, 1, 1))
     assert formal_atom((2, 0, 4, 1, 2))
     polynomial_count = associate_count = 0
-    for a, b in [(2, 15), (4, 225), (5, 144)]:
+    for a, b in [(2, 15), (4, 225), (5, 144), (6, 175), (10, 1323)]:
         t = Q(a, b)
         family = ReciprocalFamily(a, b)
         for cs in product(range(3), repeat=4):

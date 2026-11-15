@@ -12,8 +12,10 @@ least two distinct prime factors and a<p^(e_p) for every prime p dividing b.
 Then N_0[t] minus {0} is IDF and non-atomic. Thus every pair (t,r) with
 r in N_0[t], and its transpose, belongs to (b).
 
-If in addition a is a prime power, N_0[t,t^(-1)] minus {0} is IDF and
-non-atomic. The same applies to (t^i,t^(-j)) for positive coprime i,j.
+The reciprocal monoid N_0[t,t^(-1)] minus {0} is also IDF and non-atomic,
+for arbitrary a>1 under the same denominator condition. The same applies
+to (t^i,t^(-j)) for positive coprime i,j. The original prime-power-numerator
+restriction has been removed in RECIPROCAL_TRANSFER_AND_GENERAL_FAMILY.md.
 
 See [PRIME_POWER_DENOMINATOR_FAMILIES.md](PRIME_POWER_DENOMINATOR_FAMILIES.md)
 for self-contained proofs, including the nontrivial unit group in the
@@ -37,6 +39,28 @@ No novelty claim is made: the user supplied detailed October–November
 progress posts, but live discussion access and the full attached drafts
 remain unavailable. Several of our reductions recover credited results.
 See [SOURCE_STATUS.md](SOURCE_STATUS.md).
+
+## General reciprocal transfer
+
+For every reduced 1<a<b, S=N_0[a/b] is IDF if and only if
+T=N_0[a/b,b/a] is IDF. Atomicity of S implies atomicity of T. Every S-atom
+has an explicit uniform bound on factorization length after localization;
+the proof uses multiplicative valuation bounds and exact division by a/b.
+If a is prime, S and T differ only by replacing the free nonnegative
+power of a/b by an arbitrary integer power, so atomicity is equivalent too.
+
+See [RECIPROCAL_TRANSFER_AND_GENERAL_FAMILY.md](RECIPROCAL_TRANSFER_AND_GENERAL_FAMILY.md).
+An example beyond the old numerator restriction is (6/175,175/6): it is
+IDF and has the atomless element 49/25=1+28*(6/175).
+
+## Critical cyclic elements
+
+[CRITICAL_BOUNDED_FACTORIZATIONS.md](CRITICAL_BOUNDED_FACTORIZATIONS.md)
+proves that every element with bounded canonical digit orbit has a bound
+on all nonunit factorization lengths, and is consequently atomic. With
+at least two denominator primes, every noncritical element starts an
+infinite proper divisor chain. These statements concern individual elements;
+they do not classify atomicity or IDF of the whole monoid.
 
 ## A complete mixed family belonging to neither (a) nor (b)
 

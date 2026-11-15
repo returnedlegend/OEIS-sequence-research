@@ -1,8 +1,8 @@
 """Exact finite atom/divisor algorithm for the reciprocal family.
 
-Hypotheses: a is a prime power, gcd(a,b)=1, at least two primes divide b,
+Hypotheses: a>1, gcd(a,b)=1, at least two primes divide b,
 and every maximal prime-power factor of b exceeds a. See
-RECIPROCAL_ALGORITHM.md. Fractions and integer comparisons are exact.
+RECIPROCAL_TRANSFER_AND_GENERAL_FAMILY.md. Fractions and comparisons are exact.
 The exhaustive polynomial factor test favors clarity over large inputs.
 """
 from fractions import Fraction
@@ -128,14 +128,15 @@ def formal_atom(f):
 class ReciprocalFamily:
     def __init__(self, a, b):
         numerator_factors, denominator_factors = factor_integer(a), factor_integer(b)
-        if a < 2 or gcd(a, b) != 1 or len(numerator_factors) != 1:
-            raise ValueError("a must be a prime power coprime to b")
+        if a < 2 or gcd(a, b) != 1:
+            raise ValueError("a must be greater than one and coprime to b")
         if len(denominator_factors) < 2 or any(p**e <= a for p, e in denominator_factors.items()):
             raise ValueError("b needs >=2 prime factors, with each maximal prime power >a")
         self.a, self.b = a, b
+        self.numerator_factors = numerator_factors
         self.ell, self.s = next(iter(numerator_factors.items()))
         self.t = Fraction(a, b)
-        self.primes = set(denominator_factors) | {self.ell}
+        self.primes = set(denominator_factors) | set(numerator_factors)
         self.denominator_bound = 1
         for p, e in denominator_factors.items():
             self.denominator_bound *= p**(e - 1)
@@ -158,7 +159,16 @@ class ReciprocalFamily:
         for p in self.primes:
             while outside % p == 0:
                 outside //= p
-        bound = self.ell**(self.s - 1) * self.denominator_bound * outside
+        bound = self.denominator_bound * outside
+        for ell, exponent in self.numerator_factors.items():
+            norm = x**exponent / self.t**valuation(x, ell)
+            threshold, valuation_bound = 1 / self.t, 0
+            while threshold <= norm:
+                valuation_bound += 1
+                threshold /= self.t
+            if len(self.numerator_factors) == 1:
+                valuation_bound = min(valuation_bound, exponent - 1)
+            bound *= ell**valuation_bound
         atoms, candidate_bound = set(), 0
         for numerator in divisors(bound):
             denominator = 1
