@@ -3150,3 +3150,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T19:54:03+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=83148863, GPU certified nonviolations=83148749, unique transferred candidates=66846, exact=66838, unknown=0, pending=0 | 56660.99 GPU screened draws/s | best exact gap=0.
 
 - 2026-11-15T19:54:04+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=83206207, GPU certified nonviolations=83206093, unique transferred candidates=66890, exact=66882, unknown=0, pending=0 | 56665.22 GPU screened draws/s | best exact gap=0.
+
+- 2026-11-15T19:54:05+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=83263551, GPU certified nonviolations=83263437, unique transferred candidates=66946, exact=66934, unknown=0, pending=0 | 56674.32 GPU screened draws/s | best exact gap=0.
