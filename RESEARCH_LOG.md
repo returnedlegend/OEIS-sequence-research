@@ -188,3 +188,11 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T19:15:27+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=61312, unique screened=51169, exact=51131, unknown=0 | 28.39 unique graphs/s | best exact gap=0.
 
 - 2026-11-15T19:15:33+00:00 | 20261115T184525-seed20261117 | scheduled sync | device=cuda | generated=61492, unique screened=51315, exact=51277, unknown=0 | 28.39 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T19:16:28+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=62848, unique screened=52447, exact=52409, unknown=0 | 28.16 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T19:17:28+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=64384, unique screened=53736, exact=53696, unknown=0 | 27.95 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T19:18:28+00:00 | 20261115T184525-seed20261117 | progress | device=cuda | generated=66100, unique screened=55154, exact=55113, unknown=0 | 27.82 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T19:19:38+00:00 | CUDA baseline interrupted for GPU pipeline upgrade. Windows console stop ended the process before its final checkpoint; retained 55804 complete verification records. The last periodic summary remains labeled as progress. No positive exact gap. See runs/20261115T184525-seed20261117/interruption.json. Future runs use a portable stop file.

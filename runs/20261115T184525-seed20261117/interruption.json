@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-11-15T19:19:38+00:00",
+  "reason": "Windows console stop ended process before final checkpoint during GPU-pipeline upgrade",
+  "last_summary_utc": "2026-11-15T19:18:28+00:00",
+  "retained_verification_records": 55804,
+  "exact_records": 55804,
+  "unknown_records": 0,
+  "maximum_exact_gap": 0,
+  "note": "Existing summary is the last periodic snapshot, not final total. Generated and unique-screened totals after that snapshot are unavailable. Raw complete verification records retained."
+}
