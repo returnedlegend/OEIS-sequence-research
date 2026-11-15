@@ -83,3 +83,20 @@ and IDF. In particular:
 
 The explicit (b) family above disproves the conclusion that both requested
 sets are empty. Complete classification remains unproved in these notes.
+
+## Further proved reductions
+
+- TWO_SMALL_GENERATORS.md proves a uniform real conductor for every pair
+  0<q,r<1. Coprime reduced numerators give full positive localization. With a
+  common numerator factor and at least two denominator primes, atomicity
+  forces non-IDF. This covers genuine, nonredundant two-generator semirings.
+- STRONGER_CYCLIC_REDUCTIONS.md proves non-atomicity whenever a denominator
+  prime exceeds the numerator a. It also proves the unique-polynomial
+  representation lemma and, for b>=2a, an exact formal description of atoms.
+- check_conductor.py validates the constructive conductor algorithm with exact
+  rational arithmetic on 300 targets across five pairs. This finite check is
+  not a proof of classification; the general theorem is proved in the notes.
+
+No complete classification has been obtained. In particular, these arguments
+still do not decide atomicity or IDF for the cyclic case t=5/6. This is a
+limitation of the present work, not a claim about the current literature.
