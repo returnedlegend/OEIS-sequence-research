@@ -1,0 +1,52 @@
+{
+  "run_id": "20261115T175120-seed20261116",
+  "timestamp_utc": "2026-11-15T17:51:20+00:00",
+  "reason": "seed evaluation",
+  "device": "cpu",
+  "elapsed_seconds": 0.4934769360002065,
+  "generated": 63,
+  "unique_screened": 63,
+  "duplicates": 0,
+  "screened_out": 10,
+  "exact_calls": 53,
+  "exact": 53,
+  "unknown": 0,
+  "saved_tight": 0,
+  "saved_near": 1,
+  "independent_agreements": 1,
+  "independent_unknown": 0,
+  "unique_graphs_per_second": 127.66554098887742,
+  "best_gap": 0,
+  "best": {
+    "graph_id": "2f1e5ebfbd90c4a8c34e",
+    "source": "chvatal",
+    "status": "exact",
+    "n": 12,
+    "edges": 24,
+    "max_degree": 4,
+    "omega": 2,
+    "chi": 4,
+    "reed_bound": 4,
+    "gap": 0,
+    "coloring": [
+      0,
+      2,
+      1,
+      0,
+      1,
+      0,
+      3,
+      3,
+      0,
+      3,
+      1,
+      1
+    ],
+    "clique": [
+      5,
+      11
+    ],
+    "elapsed_seconds": 0.005605672000001505
+  },
+  "counterexample_verified": false
+}

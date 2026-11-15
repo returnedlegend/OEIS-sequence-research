@@ -84,3 +84,15 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T17:49:10+00:00 | 20261115T174010-seed20261115 | progress | device=cpu | generated=64812, unique screened=60036, exact=57245, unknown=0 | 111.16 unique graphs/s | best exact gap=0.
 
 - 2026-11-15T17:50:10+00:00 | 20261115T174010-seed20261115 | runtime limit | device=cpu | generated=72454, unique screened=67086, exact=63938, unknown=1 | 111.81 unique graphs/s | best exact gap=0.
+
+- 2026-11-15T17:50:10Z | Baseline finished | 600 seconds; 72,454 generated;
+  67,086 uniquely screened; 63,938 exact; 1 unknown at deadline; 111.81 screened
+  graphs/s. Best exact gap 0; no counterexample. All 136 saved parameter
+  representatives agreed with independent verification. Final auto-push
+  succeeded. JSONL counts for all three completed runs match their summaries;
+  both standalone CLIs independently reverified the saved Chvatal control.
+- Next bounded experiment: one hour, seed=20261116, maximum 50 vertices,
+  triangle-free mutation, CPU, 3-second exact-solver budget, automatic sync.
+  No persistent execution is assumed after this cloud machine stops.
+
+- 2026-11-15T17:51:20+00:00 | 20261115T175120-seed20261116 | seed evaluation | device=cpu | generated=63, unique screened=63, exact=53, unknown=0 | 127.67 unique graphs/s | best exact gap=0.

@@ -7,6 +7,26 @@ A reproducible experimental search for graphs close to Reed's conjectured bound:
 **No counterexample has been found.** Tight known graphs are validation controls,
 not new discoveries. Finite experiments cannot establish the conjecture.
 
+## Completed experiments
+
+CPU runs on November 15, 2026 (UTC); each count is per run and may overlap other runs.
+
+| Run | Budget | Distinct labeled graphs screened | Exact verifications | Unknown | Best gap |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Initial smoke, n <= 24 | 15 s | 2,628 | 2,534 | 1 | 0 |
+| Broad degree-preserving search, n <= 40 | 600 s | 67,086 | 63,938 | 1 | 0 |
+| Triangle-free pilot, n <= 40 | 120 s | 7,473 | 7,451 | 1 | 0 |
+
+The broad run averaged 111.81 uniquely screened graphs/s. The focused pilot
+averaged 62.27/s under concurrent CPU load. These runs do not establish a
+speed advantage for either method. The 136 broad-run saved parameter
+representatives all agreed with the independent verifier. The best
+triangle-free controls include the known Chvatal graph (n=12, Delta=4,
+omega=2, chi=4) and Mycielski(C5) (n=11, Delta=5, omega=2, chi=4).
+No novelty is claimed. Full records are in `runs/` and `RESEARCH_LOG.md`.
+
+Validation: **73 tests passed, 1 CUDA test skipped** because no GPU is exposed.
+
 ## Environment
 
 Python 3.12, NetworkX, OR-Tools CP-SAT and PyTorch. The current cloud instance has

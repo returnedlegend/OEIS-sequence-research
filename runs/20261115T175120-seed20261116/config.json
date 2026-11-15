@@ -1,0 +1,27 @@
+{
+  "seconds": 3600.0,
+  "seed": 20261116,
+  "batch_size": 64,
+  "max_vertices": 50,
+  "solver_seconds": 3.0,
+  "progress_seconds": 600,
+  "device": "cpu",
+  "output_dir": "/workspace/OEIS-sequence-research",
+  "triangle_free": true,
+  "sync": true,
+  "device_used": "cpu",
+  "torch_version": "2.15.0+cpu",
+  "cuda_available": false,
+  "started_utc": "2026-11-15T17:51:20+00:00",
+  "seed_count": 63,
+  "source_sha256": {
+    "src/__init__.py": "e5e4219ca0d6bf6756e248c2f28dc5a74c01c92a827e0a808e796052002fa979",
+    "src/constrained_graphs.py": "7f90a86742edc5075a53aaccf1a500e5efe4dc793ad8781346dfe70976d69c11",
+    "src/graphs.py": "da9272bb7ed429424c2ef930d72ba10c3e26863b18b20979c1b603378adb1f57",
+    "src/independent_verify.py": "e7458028e18cf7cea9f56b3803c6e935722d87eab4ce5ec0ba10cb138256279d",
+    "src/search.py": "452286245a60b31699f177598b32f7607cea89896837e3b9b89647455c3b9ac6",
+    "src/verify.py": "2d7fe68d3be83eaf5fc1f0e8bc4a2605d6a512307f050d2b77cc08350c52ccdc"
+  },
+  "git_dirty_at_start": true,
+  "git_head": "ce6fa6cd8d941e505478759b3b6aea131f5263c9"
+}
