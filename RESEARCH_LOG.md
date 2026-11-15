@@ -3956,3 +3956,5 @@ chromatic numbers have been established. No counterexample has been found.
 - 2026-11-15T20:01:12+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=105857087, GPU certified nonviolations=105856956, unique transferred candidates=84898, exact=84884, unknown=0, pending=0 | 55818.26 GPU screened draws/s | best exact gap=0.
 
 - 2026-11-15T20:01:14+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=105914431, GPU certified nonviolations=105914300, unique transferred candidates=84927, exact=84910, unknown=0, pending=0 | 55808.86 GPU screened draws/s | best exact gap=0.
+
+- 2026-11-15T20:01:14+00:00 | 20261115T192936-gpu-seed20261119 | scheduled sync | device=cuda, GPU pipeline | generated draws=105971775, GPU certified nonviolations=105971644, unique transferred candidates=84988, exact=84980, unknown=0, pending=0 | 55816.30 GPU screened draws/s | best exact gap=0.
