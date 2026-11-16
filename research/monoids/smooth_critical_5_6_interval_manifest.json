@@ -1,0 +1,61 @@
+{
+  "scope": "Noninteger {2,3}-smooth x in (1,24], with denominator-prime exponent from 1 through maximum_depth. This is finite evidence, not a global height bound.",
+  "integer_critical_nonunits": [
+    2,
+    3,
+    4,
+    6,
+    8,
+    9,
+    12,
+    16,
+    18,
+    24
+  ],
+  "combined_critical_nonunit_count": 41,
+  "combined_atom_count": 22,
+  "runs": [
+    {
+      "file": "smooth_critical_5_6_intervals_500000.jsonl",
+      "file_sha256": "3d2532b64b44fb428b41265275ee1b24062f9df0caf867f1c62830d0d97bdbcc",
+      "maximum_depth": 500000,
+      "candidate_count": 3738876,
+      "noninteger_critical_count": 31,
+      "maximum_rejection_depth": 86,
+      "interval_bits": 256,
+      "residue_digits": 100,
+      "comparison_fallbacks": 0,
+      "exact_orbit_fallbacks": 31,
+      "candidate_decisions_sha256": "4d7e24c3208ab6951eb19b810f4041f32546c2adbea742022af4fca2729e1389",
+      "critical_catalogue_sha256": "90f8e5bafc57ab3ee2d1481ccf44de0573fff8526649800553da35aefe4a865f"
+    },
+    {
+      "file": "smooth_critical_5_6_intervals_5000000.jsonl",
+      "file_sha256": "b3b05e30519fce5c500c46557c7f2df214148702c6314211553961b7b4d93a6c",
+      "maximum_depth": 5000000,
+      "candidate_count": 37388760,
+      "noninteger_critical_count": 31,
+      "maximum_rejection_depth": 95,
+      "interval_bits": 256,
+      "residue_digits": 160,
+      "comparison_fallbacks": 0,
+      "exact_orbit_fallbacks": 31,
+      "candidate_decisions_sha256": "faaefc447f7957527fc81231bcbfa6ac4dd51230a3079fc1b2d75b289442f148",
+      "critical_catalogue_sha256": "90f8e5bafc57ab3ee2d1481ccf44de0573fff8526649800553da35aefe4a865f"
+    },
+    {
+      "file": "smooth_critical_5_6_intervals_20000000.jsonl",
+      "file_sha256": "c9ea9d9af2a83b7d442c8c9354269a1d3d98fa3011d4374d3267542e6ee0a14c",
+      "maximum_depth": 20000000,
+      "candidate_count": 149555035,
+      "noninteger_critical_count": 31,
+      "maximum_rejection_depth": 104,
+      "interval_bits": 256,
+      "residue_digits": 200,
+      "comparison_fallbacks": 0,
+      "exact_orbit_fallbacks": 31,
+      "candidate_decisions_sha256": "e283ec1ac6a37387366971de6d0efdddd8a6de9952575b13e74f559ca944dcf0",
+      "critical_catalogue_sha256": "90f8e5bafc57ab3ee2d1481ccf44de0573fff8526649800553da35aefe4a865f"
+    }
+  ]
+}

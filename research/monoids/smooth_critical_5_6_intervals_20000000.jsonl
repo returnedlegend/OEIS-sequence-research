@@ -1,0 +1,98 @@
+{"kind": "metadata", "limit": 20000000, "bits": 256, "residue_digits": 200, "interval": "1 < x <= 24", "exact": true, "candidate_class": "noninteger {2,3}-smooth", "small_crosscheck": {"depth": 100, "candidates": 748, "comparison_fallbacks": 0}}
+{"kind": "rejection_record", "candidate": [2, 2, 3, 1], "rejection_step": 1}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 3, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 4, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 4}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 5, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 8}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 6, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 22}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 2, "denominator_prime": 2, "denominator_exponent": 1, "terminal": 3}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 3, "denominator_prime": 2, "denominator_exponent": 1, "terminal": 15}
+{"kind": "rejection_record", "candidate": [2, 5, 3, 2], "rejection_step": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 6, "denominator_prime": 3, "denominator_exponent": 2, "terminal": 4}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 7, "denominator_prime": 3, "denominator_exponent": 2, "terminal": 14}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 3, "denominator_prime": 2, "denominator_exponent": 2, "terminal": 3}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 4, "denominator_prime": 2, "denominator_exponent": 2, "terminal": 21}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 8, "denominator_prime": 3, "denominator_exponent": 3, "terminal": 10}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 4, "denominator_prime": 2, "denominator_exponent": 3, "terminal": 9}
+{"kind": "rejection_record", "candidate": [2, 8, 3, 4], "rejection_step": 4}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 9, "denominator_prime": 3, "denominator_exponent": 4, "terminal": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 10, "denominator_prime": 3, "denominator_exponent": 4, "terminal": 10}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 5, "denominator_prime": 2, "denominator_exponent": 4, "terminal": 9}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 11, "denominator_prime": 3, "denominator_exponent": 5, "terminal": 8}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 12, "denominator_prime": 3, "denominator_exponent": 5, "terminal": 16}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 13, "denominator_prime": 3, "denominator_exponent": 6, "terminal": 2}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 6, "denominator_prime": 2, "denominator_exponent": 6, "terminal": 15}
+{"kind": "rejection_record", "candidate": [2, 14, 3, 7], "rejection_step": 7}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 15, "denominator_prime": 3, "denominator_exponent": 7, "terminal": 14}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 16, "denominator_prime": 3, "denominator_exponent": 8, "terminal": 10}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 7, "denominator_prime": 2, "denominator_exponent": 8, "terminal": 9}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 17, "denominator_prime": 3, "denominator_exponent": 9, "terminal": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 18, "denominator_prime": 3, "denominator_exponent": 9, "terminal": 16}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 8, "denominator_prime": 2, "denominator_exponent": 9, "terminal": 15}
+{"kind": "rejection_record", "candidate": [2, 18, 3, 10], "rejection_step": 9}
+{"kind": "rejection_record", "candidate": [2, 19, 3, 10], "rejection_step": 10}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 20, "denominator_prime": 3, "denominator_exponent": 10, "terminal": 22}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 10, "denominator_prime": 2, "denominator_exponent": 12, "terminal": 21}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 24, "denominator_prime": 3, "denominator_exponent": 13, "terminal": 4}
+{"kind": "rejection_record", "candidate": [3, 11, 2, 14], "rejection_step": 14}
+{"kind": "rejection_record", "candidate": [2, 29, 3, 16], "rejection_step": 16}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 12, "denominator_prime": 2, "denominator_exponent": 16, "terminal": 9}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 13, "denominator_prime": 2, "denominator_exponent": 17, "terminal": 21}
+{"kind": "rejection_record", "candidate": [3, 15, 2, 20], "rejection_step": 18}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 38, "denominator_prime": 3, "denominator_exponent": 22, "terminal": 22}
+{"kind": "rejection_record", "candidate": [2, 40, 3, 23], "rejection_step": 22}
+{"kind": "rejection_record", "candidate": [3, 25, 2, 36], "rejection_step": 24}
+{"kind": "rejection_record", "candidate": [2, 119, 3, 73], "rejection_step": 30}
+{"kind": "rejection_record", "candidate": [2, 195, 3, 121], "rejection_step": 37}
+{"kind": "rejection_record", "candidate": [2, 477, 3, 299], "rejection_step": 38}
+{"kind": "rejection_record", "candidate": [2, 2627, 3, 1655], "rejection_step": 41}
+{"kind": "rejection_record", "candidate": [2, 3302, 3, 2081], "rejection_step": 43}
+{"kind": "rejection_record", "candidate": [3, 1508, 2, 2387], "rejection_step": 65}
+{"kind": "rejection_record", "candidate": [2, 33705, 3, 21263], "rejection_step": 66}
+{"kind": "rejection_record", "candidate": [3, 25507, 2, 40424], "rejection_step": 68}
+{"kind": "rejection_record", "candidate": [3, 26046, 2, 41278], "rejection_step": 78}
+{"kind": "rejection_record", "candidate": [3, 33813, 2, 53589], "rejection_step": 80}
+{"kind": "rejection_record", "candidate": [3, 48004, 2, 76081], "rejection_step": 85}
+{"kind": "rejection_record", "candidate": [2, 605339, 3, 381924], "rejection_step": 86}
+{"kind": "progress", "depth": 500000, "candidates": 3738876, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 1211688, "elapsed_seconds": 19.794}
+{"kind": "progress", "depth": 1000000, "candidates": 7477753, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 2037888, "elapsed_seconds": 39.739}
+{"kind": "progress", "depth": 1500000, "candidates": 11216628, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 2569276, "elapsed_seconds": 59.668}
+{"kind": "rejection_record", "candidate": [2, 2773739, 3, 1750032], "rejection_step": 95}
+{"kind": "progress", "depth": 2000000, "candidates": 14955504, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 5762752, "elapsed_seconds": 79.443}
+{"kind": "progress", "depth": 2500000, "candidates": 18694380, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 6054424, "elapsed_seconds": 99.563}
+{"kind": "progress", "depth": 3000000, "candidates": 22433256, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 6108396, "elapsed_seconds": 119.233}
+{"kind": "progress", "depth": 3500000, "candidates": 26172132, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 5992278, "elapsed_seconds": 139.275}
+{"kind": "progress", "depth": 4000000, "candidates": 29911007, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 11513952, "elapsed_seconds": 159.204}
+{"kind": "progress", "depth": 4500000, "candidates": 33649883, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 10888716, "elapsed_seconds": 179.495}
+{"kind": "progress", "depth": 5000000, "candidates": 37388760, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 10172420, "elapsed_seconds": 200.808}
+{"kind": "progress", "depth": 5500000, "candidates": 41127635, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 9405542, "elapsed_seconds": 221.146}
+{"kind": "progress", "depth": 6000000, "candidates": 44866511, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 17254048, "elapsed_seconds": 241.571}
+{"kind": "progress", "depth": 6500000, "candidates": 48605387, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 15713976, "elapsed_seconds": 261.155}
+{"kind": "progress", "depth": 7000000, "candidates": 52344263, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 14227708, "elapsed_seconds": 281.254}
+{"kind": "progress", "depth": 7500000, "candidates": 56083139, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 12815330, "elapsed_seconds": 301.344}
+{"kind": "progress", "depth": 8000000, "candidates": 59822014, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 22983844, "elapsed_seconds": 321.262}
+{"kind": "progress", "depth": 8500000, "candidates": 63560890, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 20531700, "elapsed_seconds": 341.112}
+{"kind": "progress", "depth": 9000000, "candidates": 67299767, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 18276268, "elapsed_seconds": 361.033}
+{"kind": "progress", "depth": 9500000, "candidates": 71038642, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 16218316, "elapsed_seconds": 380.776}
+{"kind": "progress", "depth": 10000000, "candidates": 74777518, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 28703956, "elapsed_seconds": 400.624}
+{"kind": "progress", "depth": 10500000, "candidates": 78516394, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 25337368, "elapsed_seconds": 420.675}
+{"kind": "progress", "depth": 11000000, "candidates": 82255270, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 22315124, "elapsed_seconds": 440.618}
+{"kind": "progress", "depth": 11500000, "candidates": 85994146, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 19612816, "elapsed_seconds": 460.057}
+{"kind": "progress", "depth": 12000000, "candidates": 89733021, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 34411748, "elapsed_seconds": 479.75}
+{"kind": "progress", "depth": 12500000, "candidates": 93471897, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 30134508, "elapsed_seconds": 500.291}
+{"kind": "progress", "depth": 13000000, "candidates": 97210774, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 26346824, "elapsed_seconds": 520.173}
+{"kind": "progress", "depth": 13500000, "candidates": 100949649, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 23002292, "elapsed_seconds": 539.978}
+{"kind": "progress", "depth": 14000000, "candidates": 104688525, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 40110476, "elapsed_seconds": 559.57}
+{"kind": "progress", "depth": 14500000, "candidates": 108427401, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 34923716, "elapsed_seconds": 579.274}
+{"kind": "progress", "depth": 15000000, "candidates": 112166277, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 30373644, "elapsed_seconds": 599.024}
+{"kind": "progress", "depth": 15500000, "candidates": 115905153, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 26384390, "elapsed_seconds": 618.756}
+{"kind": "progress", "depth": 16000000, "candidates": 119644028, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 45792744, "elapsed_seconds": 638.611}
+{"kind": "progress", "depth": 16500000, "candidates": 123382904, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 39700032, "elapsed_seconds": 658.728}
+{"kind": "progress", "depth": 17000000, "candidates": 127121781, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 34387340, "elapsed_seconds": 678.453}
+{"kind": "progress", "depth": 17500000, "candidates": 130860656, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 29758814, "elapsed_seconds": 698.513}
+{"kind": "progress", "depth": 18000000, "candidates": 134599532, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 51464684, "elapsed_seconds": 718.677}
+{"kind": "progress", "depth": 18500000, "candidates": 138338408, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 44467708, "elapsed_seconds": 738.533}
+{"kind": "progress", "depth": 19000000, "candidates": 142077284, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 38393084, "elapsed_seconds": 757.941}
+{"kind": "rejection_record", "candidate": [3, 12190423, 2, 19321360], "rejection_step": 104}
+{"kind": "progress", "depth": 19500000, "candidates": 145816160, "critical": 31, "max_reject_steps": 104, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 33125532, "elapsed_seconds": 777.761}
+{"kind": "progress", "depth": 20000000, "candidates": 149555035, "critical": 31, "max_reject_steps": 104, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "current_maximum_stream_interval_width": 57123352, "elapsed_seconds": 797.569}
+{"kind": "complete", "depth": 20000000, "candidates": 149555035, "independently_counted_candidates": 149555035, "critical": 31, "max_reject_steps": 104, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "sha256": "e283ec1ac6a37387366971de6d0efdddd8a6de9952575b13e74f559ca944dcf0", "compared_sources": ["research/monoids/smooth_critical_5_6_intervals_5000000.jsonl"], "elapsed_seconds": 797.571}

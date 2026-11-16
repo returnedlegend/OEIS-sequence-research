@@ -1,0 +1,12 @@
+{
+  "candidate": [
+    3,
+    12190423,
+    2,
+    19321360
+  ],
+  "rejection_step": 104,
+  "direction": "negative",
+  "method": "exact cleared numerator over6^n",
+  "elapsed_seconds": 26.719
+}

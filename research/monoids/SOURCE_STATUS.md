@@ -13,6 +13,8 @@ hosts. No live-page or current-literature verification has been completed.
 The runtime configuration and AoPS request were checked again at about
 00:25 UTC on November 16: revision 1 remained active, and the request
 again failed with proxy tunnel HTTP 403.
+The direct AoPS request was retried at 01:22 UTC on November 16 and still
+failed with proxy tunnel HTTP 403. No later live progress was verified.
 
 The work used discussion excerpts uploaded or pasted by the user. During
 this session the user supplied a much more detailed progress excerpt,

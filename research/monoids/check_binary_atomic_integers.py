@@ -64,6 +64,15 @@ def main():
     assert all(row["valuation_threshold"] == row["degree"] + 1
                and not row["threshold_match"]
                and row["right_checked"] == row["right_subsets"] for row in upper)
+    independent_path = ROOT / "binary_valuation_digit_search_python_1_100.jsonl"
+    assert hashlib.sha256(independent_path.read_bytes()).hexdigest() == (
+        "8937510591e3c79d65e2388182ec85a16b04bde6a6289f68e19a145b200bbea8")
+    independent = [json.loads(line) for line in independent_path.read_text().splitlines()]
+    assert [row["degree"] for row in independent] == list(range(1, 101))
+    for python_row, cpp_row in zip(independent, upper):
+        for key, value in python_row.items():
+            if key != "seconds":
+                assert cpp_row[key] == value
 
     assert 10**14 < 2**47
     assert 3**147 < 2**32 * 5**87

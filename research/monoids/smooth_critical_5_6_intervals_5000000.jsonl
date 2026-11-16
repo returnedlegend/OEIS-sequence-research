@@ -1,0 +1,83 @@
+{"kind": "metadata", "limit": 5000000, "bits": 256, "residue_digits": 160, "interval": "1 < x <= 24", "exact": true, "small_crosscheck": {"depth": 100, "candidates": 748, "comparison_fallbacks": 0}}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 3, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 4, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 4}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 5, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 8}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 6, "denominator_prime": 3, "denominator_exponent": 1, "terminal": 22}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 2, "denominator_prime": 2, "denominator_exponent": 1, "terminal": 3}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 3, "denominator_prime": 2, "denominator_exponent": 1, "terminal": 15}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 6, "denominator_prime": 3, "denominator_exponent": 2, "terminal": 4}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 7, "denominator_prime": 3, "denominator_exponent": 2, "terminal": 14}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 3, "denominator_prime": 2, "denominator_exponent": 2, "terminal": 3}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 4, "denominator_prime": 2, "denominator_exponent": 2, "terminal": 21}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 8, "denominator_prime": 3, "denominator_exponent": 3, "terminal": 10}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 4, "denominator_prime": 2, "denominator_exponent": 3, "terminal": 9}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 9, "denominator_prime": 3, "denominator_exponent": 4, "terminal": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 10, "denominator_prime": 3, "denominator_exponent": 4, "terminal": 10}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 5, "denominator_prime": 2, "denominator_exponent": 4, "terminal": 9}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 11, "denominator_prime": 3, "denominator_exponent": 5, "terminal": 8}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 12, "denominator_prime": 3, "denominator_exponent": 5, "terminal": 16}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 13, "denominator_prime": 3, "denominator_exponent": 6, "terminal": 2}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 6, "denominator_prime": 2, "denominator_exponent": 6, "terminal": 15}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 15, "denominator_prime": 3, "denominator_exponent": 7, "terminal": 14}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 16, "denominator_prime": 3, "denominator_exponent": 8, "terminal": 10}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 7, "denominator_prime": 2, "denominator_exponent": 8, "terminal": 9}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 17, "denominator_prime": 3, "denominator_exponent": 9, "terminal": 2}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 18, "denominator_prime": 3, "denominator_exponent": 9, "terminal": 16}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 8, "denominator_prime": 2, "denominator_exponent": 9, "terminal": 15}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 20, "denominator_prime": 3, "denominator_exponent": 10, "terminal": 22}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 10, "denominator_prime": 2, "denominator_exponent": 12, "terminal": 21}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 24, "denominator_prime": 3, "denominator_exponent": 13, "terminal": 4}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 12, "denominator_prime": 2, "denominator_exponent": 16, "terminal": 9}
+{"kind": "critical", "numerator_prime": 3, "numerator_exponent": 13, "denominator_prime": 2, "denominator_exponent": 17, "terminal": 21}
+{"kind": "critical", "numerator_prime": 2, "numerator_exponent": 38, "denominator_prime": 3, "denominator_exponent": 22, "terminal": 22}
+{"kind": "progress", "depth": 100000, "candidates": 747775, "critical": 31, "max_reject_steps": 85, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 242032, "elapsed_seconds": 4.223}
+{"kind": "progress", "depth": 200000, "candidates": 1495551, "critical": 31, "max_reject_steps": 85, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 407204, "elapsed_seconds": 8.149}
+{"kind": "progress", "depth": 300000, "candidates": 2243326, "critical": 31, "max_reject_steps": 85, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 513870, "elapsed_seconds": 12.199}
+{"kind": "progress", "depth": 400000, "candidates": 2991101, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 1152368, "elapsed_seconds": 16.677}
+{"kind": "progress", "depth": 500000, "candidates": 3738876, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 1211688, "elapsed_seconds": 21.338}
+{"kind": "progress", "depth": 600000, "candidates": 4486652, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 1222576, "elapsed_seconds": 25.567}
+{"kind": "progress", "depth": 700000, "candidates": 5234427, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 1199496, "elapsed_seconds": 29.789}
+{"kind": "progress", "depth": 800000, "candidates": 5982202, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 2305416, "elapsed_seconds": 34.234}
+{"kind": "progress", "depth": 900000, "candidates": 6729977, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 2181192, "elapsed_seconds": 38.525}
+{"kind": "progress", "depth": 1000000, "candidates": 7477753, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 2037888, "elapsed_seconds": 42.368}
+{"kind": "progress", "depth": 1100000, "candidates": 8225527, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 1884546, "elapsed_seconds": 46.294}
+{"kind": "progress", "depth": 1200000, "candidates": 8973302, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 3456456, "elapsed_seconds": 50.166}
+{"kind": "progress", "depth": 1300000, "candidates": 9721077, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 3148940, "elapsed_seconds": 54.093}
+{"kind": "progress", "depth": 1400000, "candidates": 10468853, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 2851600, "elapsed_seconds": 57.977}
+{"kind": "progress", "depth": 1500000, "candidates": 11216628, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 2569276, "elapsed_seconds": 62.079}
+{"kind": "progress", "depth": 1600000, "candidates": 11964403, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 4609392, "elapsed_seconds": 66.135}
+{"kind": "progress", "depth": 1700000, "candidates": 12712178, "critical": 31, "max_reject_steps": 86, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 4117972, "elapsed_seconds": 70.071}
+{"kind": "progress", "depth": 1800000, "candidates": 13459954, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 3666176, "elapsed_seconds": 74.104}
+{"kind": "progress", "depth": 1900000, "candidates": 14207729, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 3254882, "elapsed_seconds": 78.103}
+{"kind": "progress", "depth": 2000000, "candidates": 14955504, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 5762752, "elapsed_seconds": 82.236}
+{"kind": "progress", "depth": 2100000, "candidates": 15703279, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 5087840, "elapsed_seconds": 86.288}
+{"kind": "progress", "depth": 2200000, "candidates": 16451055, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 4481508, "elapsed_seconds": 90.207}
+{"kind": "progress", "depth": 2300000, "candidates": 17198830, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 3939560, "elapsed_seconds": 93.85}
+{"kind": "progress", "depth": 2400000, "candidates": 17946605, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 6912184, "elapsed_seconds": 97.6}
+{"kind": "progress", "depth": 2500000, "candidates": 18694380, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 6054424, "elapsed_seconds": 101.275}
+{"kind": "progress", "depth": 2600000, "candidates": 19442155, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 5294544, "elapsed_seconds": 105.109}
+{"kind": "progress", "depth": 2700000, "candidates": 20189930, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 4623608, "elapsed_seconds": 109.009}
+{"kind": "progress", "depth": 2800000, "candidates": 20937705, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 8063508, "elapsed_seconds": 112.694}
+{"kind": "progress", "depth": 2900000, "candidates": 21685480, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 7022540, "elapsed_seconds": 116.419}
+{"kind": "progress", "depth": 3000000, "candidates": 22433256, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 6108396, "elapsed_seconds": 120.244}
+{"kind": "progress", "depth": 3100000, "candidates": 23181031, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 5307778, "elapsed_seconds": 124.079}
+{"kind": "progress", "depth": 3200000, "candidates": 23928806, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 9214460, "elapsed_seconds": 127.849}
+{"kind": "progress", "depth": 3300000, "candidates": 24676581, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 7990248, "elapsed_seconds": 131.508}
+{"kind": "progress", "depth": 3400000, "candidates": 25424357, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 6922668, "elapsed_seconds": 135.239}
+{"kind": "progress", "depth": 3500000, "candidates": 26172132, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 5992278, "elapsed_seconds": 139.246}
+{"kind": "progress", "depth": 3600000, "candidates": 26919907, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 10365524, "elapsed_seconds": 143.051}
+{"kind": "progress", "depth": 3700000, "candidates": 27667681, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 8956864, "elapsed_seconds": 146.976}
+{"kind": "progress", "depth": 3800000, "candidates": 28415457, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 7735760, "elapsed_seconds": 150.742}
+{"kind": "progress", "depth": 3900000, "candidates": 29163232, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 6803964, "elapsed_seconds": 154.48}
+{"kind": "progress", "depth": 4000000, "candidates": 29911007, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 11513952, "elapsed_seconds": 158.123}
+{"kind": "progress", "depth": 4100000, "candidates": 30658782, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 9923808, "elapsed_seconds": 161.827}
+{"kind": "progress", "depth": 4200000, "candidates": 31406558, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 8547596, "elapsed_seconds": 165.711}
+{"kind": "progress", "depth": 4300000, "candidates": 32154333, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 7358492, "elapsed_seconds": 169.656}
+{"kind": "progress", "depth": 4400000, "candidates": 32902108, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 12661436, "elapsed_seconds": 173.612}
+{"kind": "progress", "depth": 4500000, "candidates": 33649883, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 10888716, "elapsed_seconds": 177.328}
+{"kind": "progress", "depth": 4600000, "candidates": 34397659, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 9359360, "elapsed_seconds": 181.113}
+{"kind": "progress", "depth": 4700000, "candidates": 35145434, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 8041180, "elapsed_seconds": 184.906}
+{"kind": "progress", "depth": 4800000, "candidates": 35893209, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 13811236, "elapsed_seconds": 188.633}
+{"kind": "progress", "depth": 4900000, "candidates": 36640984, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 11855460, "elapsed_seconds": 192.344}
+{"kind": "progress", "depth": 5000000, "candidates": 37388760, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "maximum_stream_interval_width": 10172420, "elapsed_seconds": 196.227}
+{"kind": "complete", "depth": 5000000, "candidates": 37388760, "critical": 31, "max_reject_steps": 95, "comparison_fallbacks": 0, "exact_orbit_fallbacks": 31, "sha256": "faaefc447f7957527fc81231bcbfa6ac4dd51230a3079fc1b2d75b289442f148", "compared_sources": ["/tmp/independent_smooth_56_500k.jsonl"], "elapsed_seconds": 196.228}

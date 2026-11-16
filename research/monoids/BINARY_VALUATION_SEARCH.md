@@ -111,9 +111,13 @@ the GMP implementation, and 64 reconstructed positive controls. It also
 checks the equality case, maximal block selection, and resource limits.
 The ordinary MITM C++ implementation independently agreed on degrees
 31 through 57; the Python MITM implementation completed degrees 1 through
-50. The table-free GMP implementation completed every degree 1 through
-100 with no match at threshold n+1. Its complete run took about 282 seconds
-and its recorded peak resident memory was 8,576 KiB in this environment.
+50. The table-free GMP and independent Python runs both completed every
+degree 1 through 100 with no match at threshold n+1. All mathematical
+output fields agree, including the number of candidates passed to the
+digit decoder. Together these degrees required 5,385,619,473 streamed
+right subsets per implementation. The GMP run took about 282 seconds
+and its recorded peak resident memory was 8,576 KiB in this environment;
+the Python per-degree timings sum to about 2,195 seconds.
 
 ## 5. Preserved exact outputs
 
@@ -125,6 +129,7 @@ The code and positive-control tests make the computations reproducible.
 | Artifact | Degrees | SHA-256 |
 |---|---:|---|
 | `binary_valuation_digit_search_cpp_1_100.jsonl` | 1--100 | `3af02d6766503397df103c81a8a1d46fe194a68a48c915f2e28623a965352a85` |
+| `binary_valuation_digit_search_python_1_100.jsonl` | 1--100 | `8937510591e3c79d65e2388182ec85a16b04bde6a6289f68e19a145b200bbea8` |
 | `binary_valuation_mitm_cpp_31_57.jsonl` | 31--57 | `9b447d836ae21dfed9aa344a902d3b6f5c21c8ceaa2692cad67c1d72154d1643` |
 | `binary_valuation_mitm_python_1_50.jsonl` | 1--50 | `b7b712090669e1f934eb2ff17c8b340bc70e36fcfd9f2a7bae0e99245ee07d59` |
 

@@ -1,0 +1,16 @@
+{
+  "maximum_depth": 500000,
+  "candidate_count": 3738876,
+  "segments": [
+    {
+      "file": "smooth_critical_5_6_depth_1_100000.jsonl",
+      "sha256": "d8a53197dd46cd4e4e2be00905a2ed6ba696b3e50f39dac52c10cf3bf43dacd9",
+      "candidates": 747775
+    },
+    {
+      "file": "smooth_critical_5_6_depth_100001_500000.jsonl",
+      "sha256": "a5161384d03f78a8638237ee8d270fc317ceb91e350b9dd687ebb461608b02d9",
+      "candidates": 2991101
+    }
+  ]
+}
