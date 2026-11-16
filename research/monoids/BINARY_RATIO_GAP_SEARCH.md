@@ -1,10 +1,10 @@
 # Exact gap exclusions for binary values at 2/5
 
 This is a finite computational result, not a proof of IDF. Novelty has not
-been checked. The packaged exact script is `binary_ratio_gap_search.py`. The initial
-200,000-gap run used the equivalent scratch implementation
-`/tmp/search_cantor_ratios.py`; its run log is
-`/tmp/cantor_ratio_search_200000.log`.
+been checked. The packaged exact script is `binary_ratio_gap_search.py`.
+The completed million-gap run used the equivalent audited scratch
+implementation `/tmp/search_cantor_ratios.py`; its full run log is preserved
+as `binary_ratio_gap_search_1000000.log`.
 
 Let q=2/5. Suppose F,G are distinct finite binary polynomials with constant
 and leading coefficients 1, and their evaluated values have the same
@@ -66,23 +66,25 @@ endpoint cannot create a spurious equality.
 
 ## Run result
 
-The exact search over all L=1,...,200000 found:
+The exact search over all L=1,...,1000000 found:
 
-- 185,989 real-admissible pairs (L,K);
+- 929,946 real-admissible pairs (L,K);
 - no path from the initial state to 0;
 - no directed cycle reachable from the initial state;
-- at most 1,836 reachable states for any pair;
+- at most 2,367 reachable states for any pair;
 - maximum BFS shortest-distance from an initial state 62.
 
 The last statistic is not a claim about the longest path in a graph with
 merged branches. The packaged implementation separately computes longest
 path lengths for acyclic graphs.
 
-No search cap was reached. The run took approximately 277 seconds.
+No search cap was reached. The run took approximately 6,827 seconds.
+The largest graph occurs at L=975462, K=1429026. The full log has SHA-256
+`d8c80f22729aa9337c9a1219c988cf66b2aff0d2a9fedce0beeef54ad3028c40`.
 
 Consequently, any two distinct finite binary polynomials whose evaluated
 values share the same numerator part outside {3,5} have degree difference
-greater than 200,000.
+greater than 1,000,000.
 
 The conclusion is uniform in their individual degrees and in M. It is
 stronger than checking all polynomials up to a maximum degree, but it does

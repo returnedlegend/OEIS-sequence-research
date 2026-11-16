@@ -6,16 +6,30 @@ these checks target implementation boundaries and reconstruct finite outputs.
 from fractions import Fraction as F
 from itertools import product
 from math import prod
+from pathlib import Path
+import json
 
 if __package__:
     from .finite_basis_membership import FiniteBasisMixed
     from .boolean_mixed_factorizations import BooleanMixed
+    from .five_six_mixed_factorizations import FiveSixMixed,check_prime_certificates
+    from .primitive_residue_factorizations import PrimitiveResidueMixed
+    from .certified_primitive_residue import CertifiedPrimitive
+    from .digit_prime_carry import verify as verify_prime_carry
+    from .certified_nearby_factorizations import CertifiedNearby
+    from .nearby_integral_carry import verify as verify_carry
     from .nearby_ternary_factorizations import NearbyTernary
     from .one_block_factorizations import OneBlockSemiring
     from .reciprocal_factorizations import factor_integer
 else:
     from finite_basis_membership import FiniteBasisMixed
     from boolean_mixed_factorizations import BooleanMixed
+    from five_six_mixed_factorizations import FiveSixMixed,check_prime_certificates
+    from primitive_residue_factorizations import PrimitiveResidueMixed
+    from certified_primitive_residue import CertifiedPrimitive
+    from digit_prime_carry import verify as verify_prime_carry
+    from certified_nearby_factorizations import CertifiedNearby
+    from nearby_integral_carry import verify as verify_carry
     from nearby_ternary_factorizations import NearbyTernary
     from one_block_factorizations import OneBlockSemiring
     from reciprocal_factorizations import factor_integer
@@ -114,6 +128,72 @@ def check():
     assert semiring.r**4 == 1+221*semiring.q
     assert 2 == semiring.r+216*semiring.q
     count += 1
+    check_prime_certificates()
+    for m in (2,3,4):
+        semiring=FiveSixMixed(m)
+        values=[F(2),F(3),F(5),semiring.q,semiring.r,semiring.r**2,
+                semiring.q*semiring.r]
+        if m==2:values.extend([F(3,2),F(4031,2187)])
+        for x in values:
+            atoms,facts=semiring.factorizations(x)
+            for factors in facts:
+                assert prod(factors,start=F(1))==x
+                assert all(semiring.is_atom(z) and z in atoms for z in factors)
+            if x.denominator==1 and x>1:assert facts==[]
+            else:assert facts
+            count+=1
+        assert semiring.atom_divisors(F(2))==()
+        if m==2:assert semiring.atom_divisors(F(3))==(F(3,2),)
+        else:assert semiring.atom_divisors(F(3))==()
+        count+=2
+    semiring=CertifiedNearby(46)
+    for x in [F(2),F(5),F(23)]:
+        assert semiring.atom_divisors(x)==()
+        count+=1
+    assert semiring.atom_divisors(F(13))==(F(65,46),)
+    assert semiring.factorizations(F(13))[1]==[]
+    assert semiring.is_atom(F(2155,2116))
+    count+=3
+    data=json.loads(Path(__file__).with_name('nearby_carry_certificates.json').read_text())
+    assert len(data['certificates'])==1142
+    for record in data['certificates']:
+        assert verify_carry(record['n'],map(F,record['states']))
+        count+=1
+    for params in [(7,60,6,F(61,60)),(3,20,2,F(5,4)),(3,10,2,F(7,5))]:
+        semiring=PrimitiveResidueMixed(*params)
+        for x in [F(2),F(3),semiring.q,semiring.r,semiring.r**2]:
+            atoms,facts=semiring.factorizations(x)
+            for factors in facts:
+                assert prod(factors,start=F(1))==x
+                assert all(semiring.is_atom(z) and z in atoms for z in factors)
+            if x.denominator==1 and x>1:assert facts==[]
+            else:assert facts
+            count+=1
+    semiring=PrimitiveResidueMixed(3,20,2,F(5,4))
+    assert semiring.atom_divisors(F(2))==(F(5,4),)
+    count+=1
+    data=json.loads(Path(__file__).with_name('primitive_7_60_carry_certificates.json').read_text())
+    for record in data['records']:
+        semiring=CertifiedPrimitive(7,60,record['m'],F(61,60),
+                                    certificates=record['certificates'])
+        for certificate in record['certificates']:
+            assert verify_prime_carry(semiring.q,semiring.digits,certificate)
+            count+=1
+        assert semiring.numerator_multiplier==1
+        for p in (2,3,5):
+            assert semiring.atom_divisors(F(p))==()
+            count+=1
+    for generic,special,values in [
+        (CertifiedPrimitive(5,6,2,F(7,6)),FiveSixMixed(2),[F(2),F(3),F(3,2)]),
+        (CertifiedPrimitive(3,230,1,F(7,5)),CertifiedNearby(46),[F(2),F(13),F(65,46)])]:
+        for x in values:
+            assert generic.atom_divisors(x)==special.atom_divisors(x)
+            assert set(generic.factorizations(x)[1])==set(special.factorizations(x)[1])
+            count+=1
+    semiring=CertifiedPrimitive(7,60,2,F(61,60))
+    assert semiring.is_atom(F(233,225))
+    assert F(233,225)==semiring.q+semiring.r**2
+    count+=1
     print(f'Passed {count} exact research regression checks.')
 
 

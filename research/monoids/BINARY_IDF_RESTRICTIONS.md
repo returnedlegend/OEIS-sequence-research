@@ -181,15 +181,52 @@ documented separately in BINARY_RATIO_GAP_SEARCH.md. These exclusions are
 uniform in M and the individual polynomial degrees, but finite gap bounds
 do not prove IDF.
 
-Exact enumeration through degree 21 supports the valuation conjecture in
-Section 3. A separate floating-point MILP solver reported infeasibility of
-a counterexample through degree 31; degrees 32 and 33 reached time limits.
-Those solver infeasibility reports do not have independently checked exact
-certificates and are not claimed as proved exclusions. Exact postchecking
-would certify a found counterexample, but it cannot certify the absence of
-one. No counterexample was found.
+Exact exhaustive computation now proves the valuation bound in Section 3
+for every degree through 100. BINARY_VALUATION_SEARCH.md gives the modular
+reduction, a table-free exact digit-decoding algorithm, independent
+implementations and positive controls, and complete output logs with
+checksums. The earlier floating-point MILP reports are superseded by
+these exact finite exclusions. The all-degree bound remains unproved.
 
 BINARY_PAIR_ATOMIC_FACTORIZATIONS.md gives an independent proved advance:
 terminating membership and complete finite enumeration of atomic
 factorizations for every individual element, despite the unresolved IDF
 question.
+
+## 7. Any IDF failure already has an atomic witness of length three
+
+Write h=5/3. The following two statements are equivalent:
+
+1. S minus {0} is not IDF.
+2. For some finite binary atom alpha_0, the atomic element h^2*alpha_0
+   has infinitely many distinct atom divisors in S.
+
+The reverse implication is immediate. For the forward implication, the
+exact IDF reduction supplies infinitely many finite binary atoms alpha
+with one fixed outside-{3,5} numerator part M. Choose one of them as
+alpha_0. Then alpha_0/alpha belongs to R=Z[1/15], and every finite binary
+atom lies strictly between 1 and h. Therefore
+
+    (h^2*alpha_0)/alpha > h.
+
+The conductor puts this quotient in S. Thus every atom in the family
+divides the single atomic element h^2*alpha_0, which has the displayed
+factorization into three atoms.
+
+Moreover, the cofactors of all but finitely many of these atom divisors
+have no atomic factorization. To see a precise degree bound, put
+n_0=deg(alpha_0). The element x=h^2*alpha_0 has
+
+    h^2 < x < h^3,  v_2(x)=0,  v_5(x)=2-n_0.
+
+An atomic factorization of x contains no q, at most two copies of h,
+and otherwise only atoms with negative 5-adic valuation. A finite binary
+atom of degree n contributes -n, and another endpoint atom of index i
+contributes -i. The valuation equation therefore bounds the sum of all
+these degrees and indices by n_0. In particular, any same-M atom alpha
+of degree greater than n_0 divides x with a non-atomic cofactor.
+
+This localizes a possible failure of IDF to atomic elements of a simple
+form. It neither supplies an infinite atom family nor proves IDF. It also
+does not contradict the FFM property of the atom-generated submonoid:
+the extra cofactors, if such a family exists, lie outside that submonoid.
