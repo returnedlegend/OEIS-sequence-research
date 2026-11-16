@@ -426,3 +426,71 @@ products represent the same class.
 
 The elementary proof in section4 supersedes an earlier Dickson-lemma
 argument and needs neither an ineffective bound nor a lattice computation.
+
+## 12. A weaker hypothesis still forces reciprocal non-atomicity
+
+Suppose |P|>=2 and
+
+    a<p^(v_p(b)) for at least one p in P.                   (19)
+
+Then T is non-atomic. In particular, atomicity of either S or T requires
+
+    a>max_[p|b] p^(v_p(b)).
+
+The assertion for S was already established in STRONGER_CYCLIC_REDUCTIONS.md;
+here is the additional reciprocal argument.
+
+Because another denominator prime exists, (19) gives b>2a. Hence C<b.
+Any coefficient at least a in a polynomial expression can be carried by
+ a*t^j=b*t^(j+1), exposing a coefficient at least b>C. The perturbation
+argument from section8, with b in place of a, makes that element reducible
+in T. Thus all normalized T-atoms have coefficients below a, even though
+the all-primes block hypothesis of section8 is no longer assumed.
+
+Fix p satisfying (19), and choose another prime s|b. The ratios
+
+    p^(phi(a^L)*m)/s^(phi(a^L)*n),  m,n positive integers,
+
+are dense in the positive reals. This follows from irrational rotation,
+and the exponents may be taken arbitrarily large and positive. Choose h_L
+in the interval used in section7 from this restricted set. It is in S,
+is P-smooth, tends to1, and satisfies v_p(h_L)>0.
+
+Choose h=h_L with1<h<delta, where delta is as in section8. Suppose h has an
+atomic factorization in T. Normalize its atomic factors to beta_i and write
+
+    h=t^k*product_i beta_i.
+
+For every ell|a, the bound J_ell(beta_i)<=J_ell(h)<1/t forces
+v_ell(beta_i)=0, exactly as in section8. Since v_ell(h)=0 as well, k=0.
+Thus the beta_i multiply to h<2. Each beta_i is a nonunit polynomial with
+positive constant coefficient, so1<beta_i<2. It cannot be an integer;
+its polynomial degree n_i is positive.
+
+Put f=v_p(b). Its numerator over b^(n_i) has leading term c_(n_i)*a^(n_i)
+with v_p(c_(n_i))<f, while all other terms are divisible by p^f. Hence
+
+    v_p(beta_i)=v_p(c_(n_i))-n_i*f<0.
+
+Their product cannot have positive p-adic valuation. This contradicts the
+choice of h, and proves non-atomicity.
+
+This proof does not show that the selected h has no atom divisor, nor does
+it decide IDF under the weaker hypothesis (19).
+
+### An exact finite certificate at t=7/18
+
+For t=7/18, the block3^2=9 exceeds7, whereas the other block2 does not.
+The theorem therefore proves that both N_0[7/18] and N_0[7/18,18/7] are
+non-atomic. A concrete witness is
+
+    h=3^2448/2^3879,
+    h=1+4*t^2+2*t^3+t^4*y,
+    y=(h-1-4*t^2-2*t^3)/t^4.
+
+Exact rational arithmetic gives y in Z[1/18], y>108/11=C, and1<h<2.
+For orientation only, h is approximately1.9837108702 and y approximately
+11.4177560649. The conductor certifies h in S, using only the four-digit
+prefix(1,0,4,2); no thousands-digit expansion needs to be stored. Its
+positive3-adic valuation and the preceding argument exclude every atomic
+factorization in T. IDF is not determined by this certificate.

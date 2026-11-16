@@ -1,0 +1,11 @@
+{"through_v": 1000, "max_states": [509, 952, 410], "elapsed": 0.12178564071655273}
+{"through_v": 2000, "max_states": [1027, 2779, 1197], "elapsed": 0.4678926467895508}
+{"through_v": 3000, "max_states": [1027, 2779, 1197], "elapsed": 0.9184229373931885}
+{"through_v": 4000, "max_states": [1027, 2779, 1197], "elapsed": 1.5458943843841553}
+{"through_v": 5000, "max_states": [1027, 2779, 1197], "elapsed": 2.3493990898132324}
+{"through_v": 6000, "max_states": [1027, 2779, 1197], "elapsed": 3.384380578994751}
+{"through_v": 7000, "max_states": [1027, 2779, 1197], "elapsed": 4.641708612442017}
+{"through_v": 8000, "max_states": [1027, 2779, 1197], "elapsed": 5.949426174163818}
+{"through_v": 9000, "max_states": [1027, 2779, 1197], "elapsed": 7.482117176055908}
+{"through_v": 10000, "max_states": [1027, 2779, 1197], "elapsed": 8.983329772949219}
+{"through_v": 10000, "max_states": [1027, 2779, 1197], "exceptions": [], "elapsed": 8.983402252197266}

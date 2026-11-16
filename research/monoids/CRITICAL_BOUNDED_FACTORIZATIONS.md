@@ -20,7 +20,32 @@ Call x **critical** if x_i<=C for every i>=0. A state above C never returns belo
 
     (x_i-c_i)/t >= (x_i-(a-1))/t > (C-(a-1))/t=C.
 
-For a general a/b, checking only the first integral terminal is insufficient. For example a=5,b=8 gives C=32/3, but the terminal integer 10 subsequently maps to 16>C. In the special case a=5,b=6, the integer interval [0,24] is invariant under T(c)=6 floor(c/5), so the usual minimal-denominator terminal test <=24 does suffice.
+For a general a/b, checking only whether the first integral terminal is at most C is insufficient. For example a=5,b=8 gives C=32/3, but the terminal integer 10 subsequently maps to 16>C. In the special case a=5,b=6, the integer interval [0,24] is invariant under T(c)=6 floor(c/5), so the usual minimal-denominator terminal test <=24 does suffice.
+
+## Exact finite threshold for criticality
+
+
+The full integer orbit can in fact be classified explicitly. Put
+
+    d=b-a,
+    K=floor((a-1)/d),
+    M=a*(K+1)-1.
+
+If c is the first integral canonical terminal, then
+
+    x is critical  iff  c<=M.                           (4)
+
+To prove this, write k=floor(c/a), so T(c)=bk. If k<=K, then dk<a and
+
+    T(bk)=b floor(bk/a)=b*(k+floor(dk/a))=bk.
+
+Thus the integer orbit reaches a fixed point after at most one step. Moreover c<=M and bk<=bK<=M<=C. Working backwards through canonical digits gives every earlier real state at most C.
+
+If k>K, then dk>=a, so T(bk)=b*(k+floor(dk/a))>=b(k+1). Subsequent integer indices increase strictly and hence escape above C. This proves (4).
+
+There are no nonconstant bounded cycles of the terminal map: all bounded integer orbits enter one of 0,b,2b,...,Kb after at most one step.
+
+For a=5,b=6, K=4 and M=24. For a=5,b=8, K=1 and M=9, explaining precisely why the terminal10 is noncritical despite lying below C=32/3. When b>=2a, K=0 and M=a-1, recovering the bounded-coefficient regime.
 
 ## Theorem: an explicit bound on every nonunit factorization
 
@@ -30,15 +55,15 @@ Let X be the part of the reduced numerator of x supported outside P, and let Ome
 
 has
 
-    m <= Omega(X) + floor(log_2 C).
+    m <= Omega(X) + floor(log_2 M).
 
-In particular every critical element has a factorization into atoms. For a b-smooth critical element the bound is simply floor(log_2 C).
+In particular every critical element has a factorization into atoms. For a b-smooth critical element the bound is simply floor(log_2 M).
 
-**Proof.** Choose any nonnegative integral polynomial A_i evaluating to u_i. Let G=product A_i, let D=deg G, and let L_i>=1 be the leading coefficient of A_i. Normalize G from its constant term upward, replacing a X^j by b X^(j+1). All carries are nonnegative. At degree D the resulting terminal is exactly the canonical state x_D, and its coefficient is at least the original leading coefficient of G. Consequently
+**Proof.** Choose any nonnegative integral polynomial A_i evaluating to u_i. Let G=product A_i, let D=deg G, and let L_i>=1 be the leading coefficient of A_i. Normalize G from its constant term upward, replacing a X^j by b X^(j+1). All carries are nonnegative. At degree D the resulting terminal is exactly the canonical state x_D, and its coefficient is at least the original leading coefficient of G. Every polynomial representation has degree at least the minimal denominator degree; the integral terminal criterion above therefore gives x_D<=M. Consequently
 
-    product L_i = lc(G) <= x_D <= C.
+    product L_i = lc(G) <= x_D <= M.
 
-Thus at most floor(log_2 C) factors have L_i>=2.
+Thus at most floor(log_2 M) factors have L_i>=2.
 
 Suppose L_i=1 and d=deg A_i. Writing u_i=N/b^d gives
 
@@ -86,32 +111,4 @@ belongs R. The displayed real inequality gives z_n>C, and the conductor gives z_
 
 This characterizes bounded factorization length and the absence of divisor chains **for individual elements**. It does not prove that noncritical elements lack atomic factorizations: an element can have an atomic factorization and also arbitrarily long nonunit factorizations. For example in N_0[5/6], sufficiently large ordinary integers are noncritical and nevertheless have familiar atomic factorizations in some cases.
 
-It also does not establish IDF of the entire monoid. The bounded-length argument permits infinitely many atom divisors appearing in different bounded-length factorizations. The separate tail analysis addresses actual divisor finiteness for smooth critical elements of N_0[5/6].
-
-## Exact finite threshold for criticality, and a sharper length bound
-
-The full integer orbit can in fact be classified explicitly. Put
-
-    d=b-a,
-    K=floor((a-1)/d),
-    M=a*(K+1)-1.
-
-If c is the first integral canonical terminal, then
-
-    x is critical  iff  c<=M.                           (4)
-
-To prove this, write k=floor(c/a), so T(c)=bk. If k<=K, then dk<a and
-
-    T(bk)=b floor(bk/a)=b*(k+floor(dk/a))=bk.
-
-Thus the integer orbit reaches a fixed point after at most one step. Moreover c<=M and bk<=bK<=M<=C. Working backwards through canonical digits gives every earlier real state at most C.
-
-If k>K, then dk>=a, so T(bk)=b*(k+floor(dk/a))>=b(k+1). Subsequent integer indices increase strictly and hence escape above C. This proves (4).
-
-There are no nonconstant bounded cycles of the terminal map: all bounded integer orbits enter one of 0,b,2b,...,Kb after at most one step.
-
-For every polynomial representation of a critical x, the canonical terminal at that representation's degree is at most M. Thus the earlier factorization proof strengthens to
-
-    length <= Omega(X)+floor(log_2 M).                  (5)
-
-For a=5,b=6, K=4 and M=24. For a=5,b=8, K=1 and M=9, explaining precisely why the terminal10 is noncritical despite lying below C=32/3. When b>=2a, K=0 and M=a-1, recovering the bounded-coefficient regime.
+It also does not establish IDF of the entire monoid. The bounded-length argument permits infinitely many atom divisors appearing in different bounded-length factorizations. The separate finite carry-prefix analysis proves actual divisor finiteness for every critical element of N_0[5/6], and for all other parameters with a completed certificate; see [CRITICAL_FINITE_DIVISORS.md](CRITICAL_FINITE_DIVISORS.md).
