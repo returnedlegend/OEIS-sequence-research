@@ -2,9 +2,11 @@
 
 Let `S=N_0[a/b]`, where `1<a<b` and `gcd(a,b)=1`. The theorem below gives
 a finite, reproducible certificate that every critical element of `S` has
-finitely many actual multiplicative divisors. These certificates have been
-completed for **every reduced parameter with `b<=30` and at least two
-distinct denominator primes: 87 parameter pairs**.
+finitely many actual multiplicative divisors. Completed certificates cover
+every reduced parameter with `b<=30` and at least two denominator primes
+(87 pairs), and every such parameter with `K=1` and `b<=5000` (1,001,391
+pairs), where `K` is defined below. Symbolic depth-one certificates also
+give infinite families with arbitrarily many denominator primes.
 
 In particular this proves finite actual divisors for every critical element
 of `N_0[5/6]`, and gives a terminating atom decision algorithm throughout
@@ -204,6 +206,71 @@ reduction modulo `U` forces `beta=k+1 (mod U)`, a contradiction. Thus
 There are infinitely many choices for every fixed `U`, for instance
 `V=2^(phi(U)*n)` for positive `n` with `V>3`.
 
+A third family has three distinct denominator primes. Let `U,V` be
+coprime odd prime powers satisfying `U*V>=3*(U+V)`, and set
+
+    a=U*V+U+V,    b=2*U*V.
+
+These parameters are coprime and have `K=1`. Here `d=b-a=U*V-U-V` is
+the Frobenius number for `U,V`. The coprime proper leading pairs are
+`(2,U*V)`, `(U,2*V)`, and `(V,2*U)`. The first cannot represent `d`,
+which is odd and below `U*V`. For the second, an equation
+`d=U*alpha+2*V*beta` forces `beta=(U-1)/2 (mod U)`. Its smallest
+nonnegative possibility already gives `2*V*beta=(U-1)*V>d`, so it also
+fails. The third is symmetric. Thus `H=1` throughout this family.
+Examples include `59/90`, `71/110`, `79/126`, and `95/154`.
+
+There are also depth-one families with arbitrarily many denominator
+primes. Let `U_1,...,U_k` be pairwise coprime odd prime powers, and put
+
+    B=product_i U_i,    L=sum_i B/U_i.
+
+If `6*L<=B`, take `a=B+2*L` and `b=2*B`. These integers are coprime and
+have `K=1`. Every coprime proper leading pair can be oriented as
+`(D,2*B/D)`, where `D` is a nonempty product of the prime-power blocks.
+Put `R_D=sum_(U_i divides D) D/U_i`. Then `0<R_D<=D/6`. A representation
+
+    B-2*L = D*alpha+(2*B/D)*beta
+
+would force `beta=-R_D (mod D)`, so `beta>=D-R_D>=5*D/6`. But the
+nonnegative equation requires `beta<(D/2)`, a contradiction. Noncoprime
+pairs again fail immediately. Hence `H=1`. The case `k=1` recovers
+`(Q+2)/(2Q)`; examples with larger `k` include `243/374`, `281/442`, and
+`9731/14858`, the last having four distinct denominator primes. For any
+fixed number of blocks, increasing their prime-power exponents makes
+`6*L<=B` hold, giving infinite families of every denominator-prime rank
+at least two.
+
+More generally, a weighted-block construction works for any prescribed
+denominator-prime support. Let `k>=2`, let the `U_i` be pairwise coprime
+prime powers, and choose positive weights `w_i`. Put
+
+    B=product_i U_i,    T=sum_i w_i*B/U_i.
+
+Suppose `3*T<=B` and `a=(B+T)/2` is an integer coprime to `b=B`.
+Then `K=1`. Orient a coprime proper pair as `(D,B/D)` with `D` odd, and put
+`R_D=sum_(U_i divides D) w_i*D/U_i`. Positivity of the omitted weights
+gives `0<R_D<D*T/B<=D/3`. A representation of `d=(B-T)/2` would require
+`2*beta=-R_D (mod D)`. Since `D` is odd, its least nonnegative solution
+is at least `(D-R_D)/2`, which is strictly greater than
+`d/(B/D)`. Hence no pair survives and `H=1`.
+
+To obtain infinitely many examples for any fixed prime set `P`, with
+`|P|>=2`, take `U_p=p^E` for sufficiently large `E`. If `2` belongs to
+`P`, assign its block weight `2` and every other block weight `1`.
+For `E>=2`, `B+T` has 2-adic valuation exactly `1`, and at every odd
+block prime `p`, `2*a` is congruent to `B/U_p` modulo `p`. Thus `a` is
+integral and coprime to `B`. If all primes are odd, take all weights `1`
+when `|P|` is odd, or one weight `2` and the others `1` when `|P|` is
+even. Then `T` is odd, and the same block congruences give coprimality.
+In both cases `T/B=sum_p w_p/p^E` tends to zero, so `3*T<=B` eventually.
+The ratios `a/b=(1+T/B)/2` are distinct as `E` increases.
+
+Examples with entirely odd denominators are `116/187`, `545/819`, and
+`238759/392863`, with respectively two, three, and four denominator
+primes. Examples using the supports `{2,3}` and `{3,5}` are `89/144` and
+`142/225`.
+
 ## 4. The full certificate for 5/6
 
 For `a=5,b=6`, the fixed terminals are `6,12,18,24`. The possible leading
@@ -275,6 +342,47 @@ eleven cases. The depth-first search subsequently completed **every**
 case; only the completed calculation is used in this table and theorem.
 No assertion of universal termination for arbitrary `a,b` is made.
 
+### Exhaustive K=1 coverage through denominator 5000
+
+When `K=1`, every prefix tree is a single path until it becomes empty.
+Only `m=j=1` occurs, so every carry is zero. A noncoprime leading pair
+fails immediately. For a coprime pair `u*v=b`, the next coefficients solve
+
+    u*beta+v*alpha = b-a-cross,
+
+where `cross` is the already determined nonnegative convolution term.
+The right side is strictly below `u*v`. Consequently there is at most one
+nonnegative solution: choose `alpha` in `{0,...,u-1}` by reduction modulo
+`u`, and test whether the resulting `beta` is nonnegative. Any solution
+also has `beta<v`; because `u,v<=b/2<a`, both coefficients are allowed.
+For `u=2`, the equation already fails at depth one: `b-a` is odd and
+strictly less than `v`.
+
+[check_cyclic_k1.py](check_cyclic_k1.py) implements this independent
+deterministic recurrence. The exhaustive run covers **all 1,001,391
+reduced parameters with `K=1`, `b<=5000`, and at least two denominator
+primes**, across 4,286 denominators. It certifies all 3,194,739 leading-pair
+cases: 1,164,032 noncoprime pairs, 211,007 coprime pairs with `u=2`, and
+1,819,700 other coprime pairs. Every path becomes empty by depth 15. That
+maximum is attained only at `a/b=2248/4311`, leading pair `(9,479)`.
+
+The compact manifest
+[cyclic_k1_certificates.json](cyclic_k1_certificates.json) records the exact
+counts by empty depth, all successive depth records with their surviving
+coefficient prefixes, and a SHA-256 digest of every parameter/pair/depth
+record. A resource cap raises an explicit incomplete result. This finite
+exhaustive calculation does **not** prove termination for arbitrary
+denominators with `K=1`.
+
+To reproduce it, including 559 independent comparisons against the
+general carry search for `b<=100`, run:
+
+    python research/monoids/check_cyclic_k1.py
+
+The option `--write-manifest` deliberately regenerates the committed
+5000-denominator manifest. `--max-denominator` permits a smaller or larger
+exploratory run without overwriting that manifest.
+
 ## 6. Exact divisor, atom, and factorization algorithms
 
 [cyclic_critical.py](cyclic_critical.py) first computes a prefix certificate
@@ -298,7 +406,8 @@ irreducibility test for every parameter having a completed certificate.
 
 For critical inputs, the program also identifies every atom divisor and
 enumerates all atomic factorizations up to ordering. It uses the proved
-length bound `Omega(X)+floor(log_2 M)`. It deliberately does not claim to
+length bound `Omega(X)+floor(log_(p_min) M)`, where `p_min` is the smallest
+denominator prime. It deliberately does not claim to
 enumerate atomic factorizations of a noncritical input.
 
 Examples:

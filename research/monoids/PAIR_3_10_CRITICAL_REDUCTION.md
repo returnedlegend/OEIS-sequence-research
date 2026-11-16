@@ -239,6 +239,15 @@ ends in the block1,2. Here u may be an integer. At any such endpoint,
 writing x=N/10^n gives N=M*2^E with E=u+n>=0. This criterion involves
 all critical endpoint values; no separate irreducibility test is needed.
 
+If IDF fails, it already fails at an element with an explicit atomic
+factorization of length3. Indeed, choose one endpoint alpha_0 in an
+infinite fixed-M family. Every other endpoint alpha in that family
+divides4*alpha_0: the quotient belongs R and is greater than2, hence
+belongs S. The target has factorization2*2*alpha_0. The finite complete
+atomic-factorization theorem in PAIR_3_10_FACTORIZATION_ALGORITHM.md
+then implies that all but finitely many of these cofactors are
+nonatomic. This is a conditional witness reduction, not an IDF answer.
+
 ## 7. Reverse critical orbits for the unresolved endpoint problem
 
 Fix an endpoint with terminal2 and build its digits in reverse. Let N_k

@@ -37,7 +37,7 @@ This equivalence does not require a finite carry-prefix certificate.
 1. Every noncritical element is reducible, so every atom is critical.
 2. A critical element with outside numerator `N` has an atomic
    factorization, and every factorization into nonunits has length at most
-   `Omega(N)+floor(log_2 M)`.
+   `Omega(N)+floor(log_(p_min) M)`, where `p_min=min P`.
 
 First suppose every `K_N` is finite, and fix a nonzero `x` in `S` with
 outside numerator `N`. All valuations outside `P` are nonnegative on `S`.
@@ -51,7 +51,7 @@ whose outside numerator divides `N` divides `L` in `S`: its value
 `alpha` satisfies `alpha<=C`, the quotient `L/alpha` belongs to `Z[1/b]`,
 and `L/alpha>=C`. The real conductor therefore puts this quotient in `S`.
 IDF gives only finitely many such atoms. Every element of `K_N` is a
-product of at most `Omega(N)+floor(log_2 M)` atoms from this one finite
+product of at most `Omega(N)+floor(log_(p_min) M)` atoms from this one finite
 set. There are finitely many such products, proving the assertion. QED.
 
 Equivalently, IDF asks whether the critical condition bounds the usual

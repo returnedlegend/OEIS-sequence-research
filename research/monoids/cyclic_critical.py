@@ -141,8 +141,12 @@ def prefix_case(
     complete breadth-first state counts without storing an entire level.
     """
     solutions: dict[int, list[tuple[int, int]]] = {}
-    for alpha in range(a):
-        for beta in range(a):
+    # Carries can only decrease, and the convolution cross term is
+    # nonnegative. Larger coefficient targets can never be reached.
+    maximum_target = (b - a) * m + a * (m - j)
+    for alpha in range(min(a - 1, maximum_target // v) + 1):
+        maximum_beta = min(a - 1, (maximum_target - v * alpha) // u)
+        for beta in range(maximum_beta + 1):
             solutions.setdefault(u * beta + v * alpha, []).append((alpha, beta))
     left, right = [u], [v]
     counts = [1] + [0] * max_depth
@@ -221,6 +225,7 @@ class DivisorBounds:
 
 
 def divisor_bounds(a: int, b: int, x: Fraction) -> DivisorBounds:
+    _validate_parameters(a, b, two_primes=True)
     x = Fraction(x)
     digits = canonical(a, b, x)
     if x <= 0 or digits is None:
@@ -301,7 +306,10 @@ def atomic_factorizations(
     bounds = divisor_bounds(a, b, x)
     atoms = atom_divisors(a, b, x)
     omega = sum(exponent for _, exponent in factor_integer(bounds.outside_numerator))
-    length_bound = omega + floor_log(2, critical_threshold(a, b))
+    minimum_denominator_prime = factor_integer(b)[0][0]
+    length_bound = omega + floor_log(
+        minimum_denominator_prime, critical_threshold(a, b)
+    )
     answers = []
 
     def visit(remainder: Fraction, first: int, factors: tuple[Fraction, ...]) -> None:

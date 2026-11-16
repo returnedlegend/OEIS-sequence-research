@@ -49,27 +49,27 @@ For a=5,b=6, K=4 and M=24. For a=5,b=8, K=1 and M=9, explaining precisely why th
 
 ## Theorem: an explicit bound on every nonunit factorization
 
-Let X be the part of the reduced numerator of x supported outside P, and let Omega(X) count its prime factors with multiplicity. If x is critical, every factorization
+Let X be the part of the reduced numerator of x supported outside P, let Omega(X) count its prime factors with multiplicity, and put p_min=min P. If x is critical, every factorization
 
     x=u_1 ... u_m,  u_i in S minus {0,1},
 
 has
 
-    m <= Omega(X) + floor(log_2 M).
+    m <= Omega(X) + floor(log_(p_min) M).
 
-In particular every critical element has a factorization into atoms. For a b-smooth critical element the bound is simply floor(log_2 M).
+In particular every critical element has a factorization into atoms. For a b-smooth critical element the bound is simply floor(log_(p_min) M). This sharpens the uniform log_2 bound when every denominator prime is odd.
 
 **Proof.** Choose any nonnegative integral polynomial A_i evaluating to u_i. Let G=product A_i, let D=deg G, and let L_i>=1 be the leading coefficient of A_i. Normalize G from its constant term upward, replacing a X^j by b X^(j+1). All carries are nonnegative. At degree D the resulting terminal is exactly the canonical state x_D, and its coefficient is at least the original leading coefficient of G. Every polynomial representation has degree at least the minimal denominator degree; the integral terminal criterion above therefore gives x_D<=M. Consequently
 
     product L_i = lc(G) <= x_D <= M.
 
-Thus at most floor(log_2 M) factors have L_i>=2.
+If gcd(L_i,b)>1, then L_i>=p_min. Thus there are at most floor(log_(p_min) M) such factors.
 
-Suppose L_i=1 and d=deg A_i. Writing u_i=N/b^d gives
+For every remaining factor, gcd(L_i,b)=1. Put d=deg A_i and write u_i=N/b^d, giving
 
     N=sum_j (A_i)_j a^j b^(d-j).
 
-For every p dividing b, N is congruent to a^d modulo p, and hence gcd(N,b)=1. If d>0, N>=a^d>1. If d=0, L_i=1 would mean u_i=1, which is excluded. Thus every such factor consumes at least one prime, with multiplicity, from the outside-P numerator X. Valuations outside P are nonnegative on S and add in the displayed factorization, so there are at most Omega(X) such factors. This proves the bound.
+For every p dividing b, N is congruent to L_i*a^d modulo p, and hence gcd(N,b)=1. If d>0, N>=L_i*a^d>1. If d=0, N=L_i>1 because the factor is a nonunit. Thus every such factor consumes at least one prime, with multiplicity, from the outside-P numerator X. Valuations outside P are nonnegative on S and add in the displayed factorization, so there are at most Omega(X) such factors. This proves the bound.
 
 If x had no atomic factorization, repeatedly split a non-atomic nonunit factor into two nonunits. This would produce arbitrarily long nonunit factorizations, contradicting the bound. QED.
 

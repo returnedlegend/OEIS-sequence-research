@@ -81,6 +81,38 @@ def check_defaults():
         assert gcd(a, b) == 1
         assert prefix_certificate(a, b).depth == 1
         assert is_atom(a, b, Fraction(a, b))
+    for u, v in [(5, 9), (5, 11), (7, 9), (7, 11), (9, 25)]:
+        a, b = u * v + u + v, 2 * u * v
+        assert gcd(a, b) == 1
+        assert (a - 1) // (b - a) == 1
+        assert prefix_certificate(a, b).depth == 1
+    for blocks in [(7,), (11, 17), (13, 17), (17, 19, 23)]:
+        product = 1
+        for block in blocks:
+            product *= block
+        total = sum(product // block for block in blocks)
+        assert 6 * total <= product
+        a, b = product + 2 * total, 2 * product
+        assert gcd(a, b) == 1
+        assert (a - 1) // (b - a) == 1
+        assert prefix_certificate(a, b).depth == 1
+    for blocks, weights in [
+        ((11, 17), (2, 1)),
+        ((7, 9, 13), (1, 1, 1)),
+        ((19, 23, 29, 31), (2, 1, 1, 1)),
+        ((16, 9), (2, 1)),
+        ((9, 25), (2, 1)),
+    ]:
+        product = 1
+        for block in blocks:
+            product *= block
+        total = sum(weight * (product // block)
+                    for block, weight in zip(blocks, weights))
+        assert (product + total) % 2 == 0 and 3 * total <= product
+        a, b = (product + total) // 2, product
+        assert gcd(a, b) == 1
+        assert (a - 1) // (b - a) == 1
+        assert prefix_certificate(a, b).depth == 1
 
     # A cap must remain an explicit incomplete result, not an empty tree.
     try:
@@ -147,6 +179,14 @@ def check_defaults():
     assert set(atomic_factorizations(5, 6, Fraction(8))) == expected_eight
     assert set(atomic_factorizations(5, 6, Fraction(9))) == expected_nine
     assert atomic_factorizations(5, 6, Fraction(1)) == ((),)
+    # Odd denominator support uses the sharper minimum-prime length bound.
+    assert atomic_factorizations(7, 15, Fraction(3)) == ((Fraction(3),),)
+    assert atomic_factorizations(7, 15, Fraction(6)) == (
+        (Fraction(2), Fraction(3)),
+    )
+    assert atomic_factorizations(29, 45, Fraction(27)) == (
+        (Fraction(3), Fraction(3), Fraction(3)),
+    )
 
     # Generated polynomial values test the canonical algorithm independently
     # by reconstruction; known products must appear in complete divisor lists.
