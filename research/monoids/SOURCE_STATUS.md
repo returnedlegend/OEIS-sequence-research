@@ -73,5 +73,9 @@ literature is unverified. The general reciprocal transfer theorem, Boolean
 mixed families, critical divisor certificates, and contracting Mobius
 factorization algorithms are not explicitly stated in the supplied excerpt;
 that is not enough to establish novelty. None of these notes completes the original rational-
-pair classification. No atomic, non-IDF example in the requested two-generator
+pair classification. The final density-one parameter theorems, the complete
+nearby-family certification through 100 million, and the finite binary
+integer classification likewise carry no priority claim: their proofs and
+computations are provided, but comparison with the inaccessible full
+discussion remains outstanding. No atomic, non-IDF example in the requested two-generator
 semiring family has been proved here.

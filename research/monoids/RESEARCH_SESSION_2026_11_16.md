@@ -1,7 +1,8 @@
 # Three-hour research session: verified results and limits
 
-The requested session began at 22:43 UTC on November 15, 2026. Work was
-continually pushed to the `research/monoid-idf` branch. The original rational-pair
+The requested session ran from 22:43 UTC on November 15 to 01:43 UTC on
+November 16, 2026. Work was continually pushed to the `research/monoid-idf`
+branch. The original rational-pair
 classification remains incomplete, and no atomic, non-IDF example in the
 requested two-generator family was proved.
 
@@ -74,9 +75,10 @@ These finite lists do not imply IDF, because a cofactor may be non-atomic.
 For cyclic semirings, exact carry certificates give complete divisor
 algorithms for critical elements. Symbolic families cover every prescribed
 set of at least two denominator primes, and a separate exact computation
-certifies 1,001,391 reduced `K=1` parameters with denominator at most 5000.
-The general reciprocal transfer theorem proves that `N_0[a/b]^*` is IDF
-exactly when `N_0[a/b,b/a]^*` is IDF, including composite numerators.
+certifies 1,001,391 reduced `K=1` parameters with denominator at most 5000
+and at least two denominator primes. For reduced `1<a<b`, the general
+reciprocal transfer theorem proves that `N_0[a/b]^*` is IDF exactly when
+`N_0[a/b,b/a]^*` is IDF, including composite numerators.
 
 The [directory index](README.md) links each proof, its precise hypotheses,
 and its exact implementation.
