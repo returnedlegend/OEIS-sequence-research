@@ -1,4 +1,4 @@
-# Source and novelty status — 2026-11-15
+# Source and novelty status — 2026-11-16
 
 The requested live source is
 https://artofproblemsolving.com/polymath/mitprimes2026/f .
@@ -10,6 +10,9 @@ hosts but not AoPS or research-index hosts. Requests to AoPS and Crossref
 failed with proxy tunnel HTTP 403. A draft adding research hosts was saved,
 but the active runtime still reports revision 1 with no custom allowed
 hosts. No live-page or current-literature verification has been completed.
+The runtime configuration and AoPS request were checked again at about
+00:25 UTC on November 16: revision 1 remained active, and the request
+again failed with proxy tunnel HTTP 403.
 
 The work used discussion excerpts uploaded or pasted by the user. During
 this session the user supplied a much more detailed progress excerpt,
@@ -64,8 +67,9 @@ and conductor tools overlap credited discussion contributions.
 
 The remaining theorems in this directory have self-contained proofs, but
 their novelty relative to the complete discussion, attached drafts, or
-literature is unverified. In particular the reciprocal prime-power numerator
-family is not explicitly stated in the supplied excerpt, which is not enough
-to establish novelty. None of these notes completes the original rational-
+literature is unverified. The general reciprocal transfer theorem, Boolean
+mixed families, critical divisor certificates, and contracting Mobius
+factorization algorithms are not explicitly stated in the supplied excerpt;
+that is not enough to establish novelty. None of these notes completes the original rational-
 pair classification. No atomic, non-IDF example in the requested two-generator
 semiring family has been proved here.

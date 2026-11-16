@@ -157,6 +157,53 @@ the following properties of an individual nonzero `x` are equivalent:
 This is a statement about **individual elements**, not global IDF or
 global atomicity.
 
+### Symbolic infinite families of depth-one certificates
+
+When `K=1`, there is a simple arithmetic criterion for `H=1`: for every
+coprime proper factor pair `u*v=b`, require
+
+    b-a is not in u*N_0+v*N_0.
+
+Indeed, only `m=j=1` occurs. A noncoprime pair fails the first coefficient
+equation automatically, since `gcd(b-a,b)=1`; a coprime pair fails exactly
+when this arithmetic condition holds. It gives the following families.
+
+Suppose `b=2*p^e`, where `p` is an odd prime, and
+
+    floor((a-1)/(b-a))=1.
+
+Then a certificate of depth `H=1` follows without a search. Only `m=j=1`
+occurs, and the first coefficient equation is `u*beta+v*alpha=b-a`, with
+`u*v=b`. If `gcd(u,v)>1`, the left side is divisible by that gcd while
+`gcd(b-a,b)=1`, which is impossible. The only coprime unordered pair is
+`(2,p^e)`. The hypothesis gives `a>b/2`, so `b-a<p^e`; also `b-a` is
+odd. It cannot be a nonnegative combination of `2` and `p^e`.
+
+Thus the finite-divisor and atom algorithms apply to this infinite family,
+not just the finite denominator table below. In particular, for every odd
+prime power `Q>=7`,
+
+    t=(Q+2)/(2Q)
+
+satisfies these hypotheses. Examples include `9/14`, `11/18`, `13/22`,
+`51/98`, and `83/162`. This still does not classify global atomicity or IDF
+for those semirings.
+
+A second family permits both prime-power blocks of the denominator to
+grow. Let `U` be an odd prime power, and let `V>3` be a prime power with
+`V=1 (mod U)`. Set
+
+    b=U*V,    a=(U+1)*V/2-1.
+
+Write `k=(U-1)/2`, so `b-a=k*V+1`. These parameters are coprime and
+`K=1`: coprimality follows from `b-a=1 (mod V)` and
+`b-a=k+1 (mod U)`, while `gcd(k+1,U)=1`. The only coprime proper factor
+pair is `(U,V)`. If `b-a=U*alpha+V*beta`, then `0<=beta<=k`, whereas
+reduction modulo `U` forces `beta=k+1 (mod U)`, a contradiction. Thus
+`H=1` again. Examples include `7/12`, `31/48`, `47/80`, and `255/448`.
+There are infinitely many choices for every fixed `U`, for instance
+`V=2^(phi(U)*n)` for positive `n` with `V>3`.
+
 ## 4. The full certificate for 5/6
 
 For `a=5,b=6`, the fixed terminals are `6,12,18,24`. The possible leading
@@ -317,3 +364,10 @@ bounded integer series with the special rational product (5). Ordinary
 binary-digit partition factorizations show that nonrational nonnegative
 factors of rational series do exist. Ruling out the more restrictive
 case (5), or finding an obstruction, remains open in this work.
+
+Independently of universal certificate termination, global IDF has an
+exact formulation as finiteness of the critical elements with each fixed
+outside-denominator numerator. See
+[CRITICAL_IDF_HEIGHT_REDUCTION.md](CRITICAL_IDF_HEIGHT_REDUCTION.md).
+The finite-divisor theorem here concerns one target at a time and does
+not bound the heights of an entire such class.

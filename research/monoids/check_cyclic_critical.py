@@ -72,6 +72,16 @@ def check_defaults():
             certificate_cases += 1
     assert certificate_cases == 199
 
+    # Symbolically proved depth-one families, including denominators beyond30.
+    for q in [7, 9, 11, 49, 81]:
+        assert prefix_certificate(q + 2, 2 * q).depth == 1
+        assert is_atom(q + 2, 2 * q, Fraction(q + 2, 2 * q))
+    for u, v in [(3, 4), (3, 16), (5, 16), (7, 64), (9, 64)]:
+        a, b = (u + 1) * v // 2 - 1, u * v
+        assert gcd(a, b) == 1
+        assert prefix_certificate(a, b).depth == 1
+        assert is_atom(a, b, Fraction(a, b))
+
     # A cap must remain an explicit incomplete result, not an empty tree.
     try:
         prefix_case(5, 6, 2, 1, 2, 3, max_depth=1)

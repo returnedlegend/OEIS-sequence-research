@@ -9,11 +9,13 @@ from math import prod
 
 if __package__:
     from .finite_basis_membership import FiniteBasisMixed
+    from .boolean_mixed_factorizations import BooleanMixed
     from .nearby_ternary_factorizations import NearbyTernary
     from .one_block_factorizations import OneBlockSemiring
     from .reciprocal_factorizations import factor_integer
 else:
     from finite_basis_membership import FiniteBasisMixed
+    from boolean_mixed_factorizations import BooleanMixed
     from nearby_ternary_factorizations import NearbyTernary
     from one_block_factorizations import OneBlockSemiring
     from reciprocal_factorizations import factor_integer
@@ -90,6 +92,28 @@ def check():
             if (a,b) == (3,10):
                 assert len(records) == 2
             count += 1
+    for params in [(5,6,4,1,7), (3,10,2,1,11), (3,10,2,1,17)]:
+        semiring = BooleanMixed(*params)
+        for x in [F(1), F(2), F(3), F(5), semiring.q, semiring.r,
+                  semiring.q*semiring.r, semiring.r**2]:
+            atoms, facts = semiring.factorizations(x)
+            for factors in facts:
+                assert prod(factors, start=F(1)) == x
+                assert all(semiring.is_atom(z) and z in atoms for z in factors)
+            if x.denominator == 1 and x > 1:
+                assert facts == []
+            if x in (semiring.q, semiring.r, semiring.q*semiring.r, semiring.r**2):
+                assert facts
+            count += 1
+        for prime in semiring.primes:
+            assert semiring.atom_divisors(F(prime)) == ()
+            count += 1
+    # Both denominator blocks are BELOW the numerator in the strongest
+    # explicit example; this must not silently reuse the old block bound.
+    semiring = BooleanMixed(5,6,4,1,7)
+    assert semiring.r**4 == 1+221*semiring.q
+    assert 2 == semiring.r+216*semiring.q
+    count += 1
     print(f'Passed {count} exact research regression checks.')
 
 

@@ -289,3 +289,33 @@ was8/5, at n=1. The separate boundary value2 is critical and atomic.
 These finite searches neither prove IDF nor give an eventual degree
 bound. The remaining problem is explicitly the arithmetic finiteness
 of the reverse orbits in section7.
+
+## 9. The unique prime element
+
+The element q is prime, and every other atom is nonprime. This is a
+minor structural consequence of the canonical digits and conductor,
+not a resolution of IDF.
+
+Canonical subtraction of the zero digit gives
+
+  q*S = S intersect 3*R.
+
+Every nonzero element of S has nonnegative 3-adic valuation. Thus q
+divides a product exactly when at least one factor has positive
+3-adic valuation, proving primality. Iterating the identity also gives
+the unique decomposition x=q^e*y with e=v_3(x) and v_3(y)=0.
+
+For the other direction, put
+
+  h_n=2-(3/2)*q^n,  n>=0.
+
+These elements of R are outside S: h_0=1/2 has canonical digit r
+followed by the negative integer tail -3, and h_n=r+q*h_(n-1).
+Consequently h_n approaches2 from below through nonmembers.
+
+Fix any alpha in S with alpha>1. Choose n large enough that h_n>1
+and alpha*h_n>=2. The conductor shows that b=alpha*h_n belongs S,
+and also that b^2/alpha=alpha*h_n^2 belongs S. But b/alpha=h_n does
+not belong S. Thus alpha divides a square without dividing its base,
+and cannot be prime. Since q is the only atom below1, it follows that
+q is the unique prime element of the multiplicative monoid S\{0}.

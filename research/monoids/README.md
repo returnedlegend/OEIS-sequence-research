@@ -14,6 +14,7 @@ has not been verified. Live access remains blocked; see
 
 | Family | Concrete example | Stronger conclusion |
 |---|---|---|
+| Boolean forcing, without denominator-block restrictions | `(5/1296,7/6)` | Both 2 and 3 have no atom divisor; only 1 among positive integers has an atomic factorization. |
 | Independent mixed generators with a finite positive basis | `(3/1225,37/35)` | The integer 5 has no atom divisor. |
 | Independent mixed generators with numerator 2 | `(2/225,3377/3375)` | Both 3 and 5 have no atom divisor. |
 | A family adjacent to the unresolved mixed pair | `(3/20,7/5)` | Both 2 and 5 have no atom divisor; no integer greater than 1 has an atomic factorization. |
@@ -40,6 +41,13 @@ is redundant when neither exponent divides the other.
 Earlier cyclic and reciprocal constructions appear in
 [PRIME_POWER_DENOMINATOR_FAMILIES.md](PRIME_POWER_DENOMINATOR_FAMILIES.md)
 and [IDF_NONATOMIC_FAMILY.md](IDF_NONATOMIC_FAMILY.md).
+
+The stronger [BOOLEAN_MIXED_IDF_FAMILY.md](BOOLEAN_MIXED_IDF_FAMILY.md)
+removes every denominator-block comparison: an identity `2=r+Kq` with
+`K` above the cyclic conductor forces all atom basis coefficients to be
+0 or 1. It supplies independent, nonredundant IDF/non-atomic examples for
+every numerator `a>=3` and every prescribed set of at least two denominator
+primes coprime to `a`, including supports entirely below `a`.
 
 ## A general reciprocal transfer theorem
 
@@ -71,6 +79,12 @@ These are local statements about elements. They do not decide whether
 every element of `N_0[5/6]` has an atomic factorization, or whether each
 noncritical target has finitely many atom divisors.
 
+Two infinite arithmetic families also have symbolic depth-one certificates.
+[CRITICAL_IDF_HEIGHT_REDUCTION.md](CRITICAL_IDF_HEIGHT_REDUCTION.md)
+identifies the remaining global question exactly: IDF is equivalent to
+finiteness of each critical class with fixed numerator part outside the
+denominator primes. This reduction may overlap the credited discussion.
+
 ## Exact algorithms for the two unresolved IDF examples
 
 | Pair | Proved and implemented here | Still unresolved |
@@ -95,6 +109,18 @@ computations do not settle IDF. See
 [BINARY_IDF_RESTRICTIONS.md](BINARY_IDF_RESTRICTIONS.md), and
 [PAIR_3_10_RATIO_AUTOMATON.md](PAIR_3_10_RATIO_AUTOMATON.md).
 
+## A broader family of contracting pairs
+
+[MOBIUS_PAIR_NORMAL_FORMS.md](MOBIUS_PAIR_NORMAL_FORMS.md) treats
+`q=a/b<1/2`, `r=a/(b-a)`. If a maximal prime-power factor of `b` exceeds
+`a`, the monoid is non-atomic, yet every input has an effectively finite
+list of complete atomic factorizations. The generic implementation also
+decides membership and atomhood. IDF is not settled by this theorem.
+
+For `(4/9,4/5)`, the explicit element `531441/390625=3^12/5^8` has no
+atomic factorization. The implementation and independent checks include
+nonconstant periodic digit cycles, which must be rejected as nonmembers.
+
 ## Other proved reductions
 
 - [MIXED_TWO_PRIME_FAMILY.md](MIXED_TWO_PRIME_FAMILY.md): an atomic, IDF
@@ -117,6 +143,8 @@ python research/monoids/check_binary_pair.py
 python research/monoids/check_pair_3_10.py
 python research/monoids/check_binary_ratio_gap.py
 python research/monoids/check_cyclic_critical.py
+python research/monoids/check_new_idf_families.py
+python research/monoids/check_mobius_pair.py
 python research/monoids/check_small_smooth_5_6.py
 ```
 
