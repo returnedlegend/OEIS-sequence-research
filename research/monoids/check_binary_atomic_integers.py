@@ -69,6 +69,10 @@ def main():
     assert 3**147 < 2**32 * 5**87
     assert 2**14 * 3**64 < 5**50
     assert 11**13 <= 10**14 < 11**14
+    assert 3**147 < 5**101 < 3**148
+    assert 2**47 * 3**64 < 5**64
+    assert all(2**(r + 1) - 1 <= 3**r for r in range(47))
+    assert 11**13 < 2**47 < 11**14
 
     pair = MobiusPair(2, 5)
     alpha = Fraction(891, 625)

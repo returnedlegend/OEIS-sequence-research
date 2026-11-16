@@ -116,7 +116,30 @@ The exact comparison `11^13<=10^14<11^14` gives the stated range. The same
 argument applies to every possible atomic factorization of I, so its
 multiset of atoms is forced, proving uniqueness.
 
-## 4. Reproduction and preserved catalogs
+## 4. A sharper certified interval from the same finite inputs
+
+The same classification and uniqueness statement hold for every positive
+integer `I<2^47`, that is, `I<=140737488355327`. The powers in this larger
+interval are still exactly `11^k` for `0<=k<=13`.
+
+To sharpen the first degree bound, write `I=2^E*t`, with t odd, and put
+`r=46-E>=0`. From `I<2^47` one obtains
+
+    t <= 2^(r+1)-1 <= 3^r,
+    I*(3/2)^E = 3^E*t <= 3^46 < h^101.
+
+The middle inequality follows by induction on r. The last is the exact
+integer comparison `3^147<5^101`. Thus the argument in Section 2 still
+bounds every finite atom degree by 100. After coprimality has been forced,
+the exact inequality `2^47*3^64<5^64` gives `I<h^64`, so the equality
+catalog through degree 63 still suffices.
+
+This particular uniform size estimate first exceeds the checked degree
+range at `I=2^47`, since then `I*(3/2)^E=3^47>h^101`, equivalently
+`3^148>5^101`. This observation does not preclude extending the theorem
+with additional arguments or finite checks.
+
+## 5. Reproduction and preserved catalogs
 
 Run from this directory:
 
